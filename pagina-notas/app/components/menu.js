@@ -9,7 +9,7 @@ export default function Menu() {
             <li><a href="#">Ver Notas</a></li>
             <li><a href="#">Editar Materia</a></li>
             <li><a href="#">Instrucciones</a></li>
-            <li><a href="#"><Image src={logoUtp} /></a></li>
+            <li><a href="#"><Image src={logoUtp} alt="Logo utp" /></a></li>
         </ul>
     </nav>
     )
