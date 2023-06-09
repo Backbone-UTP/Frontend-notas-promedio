@@ -1,0 +1,34 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.nav_menu{
+    background-color: #2B4863;
+    border-radius: 0 0 30px 30px;
+    width: 100vw;
+}
+
+.nav_menu .nav_menu_lista{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+}
+
+.nav_menu .nav_menu_lista li{
+    width: 100%;
+    height: 100%;
+    margin-left: 5vw;
+    list-style: none;
+    position: relative;
+}
+
+
+.nav_menu .nav_menu_lista li a{
+    width: 50%;
+    height: 50%;
+    text-decoration-line: none;
+    color: #ffffff;
+    font-size: 100%;
+}
