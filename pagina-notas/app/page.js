@@ -1,10 +1,10 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import Menu from './components/menu'
+import './style/page.css'
 
 export default function Home() {
   return (
-    <body className={styles.main}>
-      <h1 className={styles.description}>hola como está</h1>
+    <body>
+      <Menu></Menu>
     </body>
   )
 }
