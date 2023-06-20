@@ -1,6 +1,9 @@
-*{
+*,
+*::after,
+*::before{
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 .nav_menu{
@@ -11,25 +14,26 @@
 
 .nav_menu .nav_menu_lista{
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-around;
-    position: relative;
 }
 
 .nav_menu .nav_menu_lista li{
-    width: 100%;
-    height: 100%;
-    margin-left: 5vw;
+    flex-grow: 1;
     list-style: none;
-    position: relative;
+
+    display: flex;
+    justify-content: center;
+}
+
+.nav_menu .nav_menu_lista .contenedor_imagen{
+    flex-grow: 0;
 }
 
 
 .nav_menu .nav_menu_lista li a{
-    width: 50%;
-    height: 50%;
     text-decoration-line: none;
-    color: #ffffff;
-    font-size: 100%;
-    margin-bottom: 5px #000;
+    color: #fff;
+    padding-bottom: 3px ;
+    border-bottom: #fff solid 2px;
 }
