@@ -14,20 +14,15 @@
 
 .nav_menu .nav_menu_lista{
     display: flex;
-    justify-content: center;
     align-items: center;
-}
-
-.nav_menu .nav_menu_lista{
     list-style: none;
-    display: flex;
     justify-content: space-between;
-    align-items: center;
     margin-left: 5%;
 }
 
 .nav_menu .nav_menu_lista .contenedor_imagen{
     display: flex;
+    position: relative;
     justify-content: center;
     align-items: center;
     margin-left: -10%;
