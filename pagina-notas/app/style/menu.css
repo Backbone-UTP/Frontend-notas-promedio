@@ -9,7 +9,6 @@
 .nav_menu{
     background-color: #2B4863;
     border-radius: 0 0 30px 30px;
-    width: 100vw;
 }
 
 .nav_menu .nav_menu_lista{
@@ -21,9 +20,8 @@
 .nav_menu .nav_menu_lista{
     list-style: none;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: 5%;
+    justify-content: center;
+    font-size: 2vh;
 }
 
 .nav_menu .nav_menu_lista .contenedor_imagen{
@@ -49,4 +47,9 @@
 
 .nav_menu .nav_menu_lista li a:hover{
     border-bottom: 2px solid rgba(255, 255, 255, 1);
+}
+
+.imagen_logo_utp{
+    width: 25vw;
+    height: 10vh;
 }

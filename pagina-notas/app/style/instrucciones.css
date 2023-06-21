@@ -1,0 +1,30 @@
+.titulo_instrucciones{
+    text-align: center;
+    font-weight: 500;
+    margin-top: 1vh;
+    font-size: 3vh;
+}
+
+.raya_inferior_titulo_intrucciones{
+    background-color: black;
+    height: 2.5px;
+    width: 65vw;
+    margin-bottom: 2vh;
+}
+
+.texto_intrucciones{
+    text-align:justify;
+    font-size: 2vh;
+    width: 70vw;
+    margin-left: 15vw;
+    margin-bottom: 5vh;
+}
+
+.subtitulo_intruciones{
+    font-size: 3vh;
+    width: 70vw;
+    margin-left: 15vw;
+    margin-bottom: 2vh;
+    text-decoration: underline;
+    font-weight: 500;
+}

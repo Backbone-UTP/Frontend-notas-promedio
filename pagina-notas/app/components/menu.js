@@ -10,7 +10,7 @@ export default function Menu() {
             <li><a href="#">Ver Notas</a></li>
             <li><a href="#">Editar Materia</a></li>
             <li><a href="#">Instrucciones</a></li>
-            <li className="contenedor_imagen"><Image src={logoUtp} alt="Logo utp" /></li>
+            <li className="contenedor_imagen"><Image className="imagen_logo_utp" src={logoUtp} alt="Logo utp" /></li>
         </ul>
     </nav>
     )
