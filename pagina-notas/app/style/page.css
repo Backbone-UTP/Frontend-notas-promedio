@@ -15,7 +15,6 @@ footer{
     display: flex;
     flex-direction: row-reverse;
     margin-bottom: 2vh;
-    position: relative;
 }
 
 .imagen_logo_backbone{

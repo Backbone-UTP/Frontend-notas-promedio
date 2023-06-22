@@ -7,9 +7,12 @@
 }
 
 .nav_menu{
+    margin-top: -15vh;
     background-color: #2B4863;
     border-radius: 0 0 30px 30px;
     width: 100vw;
+    position: fixed;
+    z-index: 100;
 }
 
 .nav_menu .nav_menu_lista{
@@ -17,7 +20,7 @@
     align-items: center;
     list-style: none;
     justify-content: space-between;
-    margin-left: 5%;
+    margin-left: 4vw;
 }
 
 .nav_menu .nav_menu_lista .contenedor_imagen{
@@ -29,17 +32,17 @@
 }
 
 .nav_menu .nav_menu_lista .contenedor_imagen img{
-    width: 40%;
-    height: 40%;
+    margin: 1vh 1vh 1vh 0;
+    width: 20vw;
+    height: 10vh;
 }
 
 .nav_menu .nav_menu_lista li a{
-    position: relative;
     text-decoration-line: none;
     color: #fff;
-    padding-bottom: 3px ;
+    padding-bottom: 3px;
     border-bottom: 2px solid rgba(255, 255, 255, .5);
-    font-size: 100%;
+    font-size: 2.5vh;
 }
 
 .nav_menu .nav_menu_lista li a:hover{
