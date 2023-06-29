@@ -7,67 +7,67 @@ export default function CrearMateria(){
 
     return(
         <div className="contenedor_universal">
-            <div className="contenedor_cuadros">
-                <div className="titulo_campo">Crear Materia</div>
-                <div className="contenedor_botones">
+            <div className={selectedTab == 0 ? 'contenedor_cuadros': 'contenedor_cuadros reducir_cuadro'}>
+                <div className={selectedTab == 0 ? 'titulo_campo': 'titulo_campo aumentar_titulo'}>Crear Materia</div>
+                <form className={selectedTab == 0 ? 'contenedor_botones': 'contenedor_botones ocultar_botones'} >
                     <div>
                         <div>Nombre Materia</div>
-                        <input type="text"></input>
+                        <input required type="text"></input>
                     </div>
                     <div>
                         <div>Créditos</div>
-                        <input type="number" max="5" min="1" className="number"></input>
+                        <input required type="number" max="5" min="1" className="number"></input>
                     </div>
                     <div>
                         <div>Obtenido</div>
-                        <input type="number" max="5" min="0" className="number"></input>
+                        <input required type="number" max="5" min="0" className="number"></input>
                     </div>
                     <div>
                         <div>Esperado</div>
-                        <input type="number" max="5" min="0" className="number"></input>
-                        <button onClick={() => setSelectedTab(selectedTab + 1)}>Crear Materia</button>
+                        <input required type="number" max="5" min="0" className="number"></input>
+                        <input type="button" onClick={() => setSelectedTab(selectedTab + 1)} className="enviar" value="Crear Materia"></input>
                     </div>
-                </div>
+                </form>
             </div>
-            <div className="contenedor_cuadros">
-                <div className="titulo_campo">Crear corte</div>
-                <div className="contenedor_botones">
+            <div className={selectedTab != 1 ? 'contenedor_cuadros reducir_cuadro': 'contenedor_cuadros'}>
+                <div className={selectedTab != 1 ? 'titulo_campo aumentar_titulo': 'titulo_campo'}>Crear corte</div>
+                <form className={selectedTab != 1 ? 'contenedor_botones ocultar_botones': 'contenedor_botones'}>
                     <div>
                         <div>Nombre Corte</div>
-                        <input type="text"></input>
+                        <input required type="text"></input>
                     </div>
                     <div>
                         <div>Porcentaje</div>
-                        <input type="number" max="100" min="0" className="number"></input>
+                        <input required type="number" max="100" min="0" className="number"></input>
                     </div>
                     <div>
                         <div>Obtenido</div>
-                        <input type="number" max="5" min="0" className="number"></input>
+                        <input required type="number" max="5" min="0" className="number"></input>
                     </div>
                     <div>
                         <div>Esperado</div>
-                        <input type="number" max="5" min="0" className="number"></input>
-                        <button>Crear Corte</button>
+                        <input required type="number" max="5" min="0" className="number"></input>
+                        <input type="submit" onClick={() => setSelectedTab(selectedTab + 1)} className="enviar" value="Crear Materia"></input>
                     </div>
-                </div>
+                </form>
             </div>
-            <div className="contenedor_cuadros">
-                <div className="titulo_campo">Crear nota</div>
-                <div className="contenedor_botones">
+            <div className={selectedTab != 2 ? 'contenedor_cuadros reducir_cuadro': 'contenedor_cuadros'}>
+                <div className={selectedTab != 2 ? 'titulo_campo aumentar_titulo': 'titulo_campo'}>Crear nota</div>
+                <form className={selectedTab != 2 ? 'contenedor_botones ocultar_botones': 'contenedor_botones'}>
                     <div>
                         <div>Nombre Nota</div>
-                        <input type="text"></input>
+                        <input required type="text"></input>
                     </div>
                     <div>
                         <div>Porcentaje</div>
-                        <input type="number" max="100" min="0" className="number"></input>
+                        <input required type="number" max="100" min="0" className="number"></input>
                     </div>
                     <div>
                         <div>Obtenido</div>
-                        <input type="number" max="5" min="0" className="number"></input>
-                        <button>Crear Nota</button>
+                        <input required type="number" max="5" min="0" className="number"></input>
+                        <input type="submit" onClick={() => setSelectedTab(selectedTab + 1)} className="enviar" value="Crear Materia"></input>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     )

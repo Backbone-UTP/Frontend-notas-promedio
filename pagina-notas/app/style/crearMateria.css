@@ -16,6 +16,8 @@
     background-color: aliceblue;
     display: flex;
     flex-direction: column;
+    transition-property: height;
+    transition-duration: 2s;
 }
 
 .contenedor_cuadros:nth-child(1){
@@ -33,12 +35,12 @@
     border-radius: 0 0 15px 15px;
 }
 
-.contenedor_cuadros:nth-child(3) div:nth-child(2) div{
-    height: 26.3%;
+.contenedor_cuadros:nth-child(3) form{
+    border-radius: 0 0 15px 15px;
 }
 
-.contenedor_cuadros:nth-child(3) div:nth-child(2){
-    border-radius: 0 0 15px 15px;
+.contenedor_cuadros:nth-child(3) form div{
+    height: 25%;
 }
 
 /* --------------------------------------------------------- */
@@ -50,6 +52,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    transition-property: height;
+    transition-duration: 2s;
 }
 
 .contenedor_botones > div{
@@ -67,33 +71,12 @@
     align-items: center;
 }
 
-.contenedor_botones div:nth-child(4) button{
-    border-radius: 50px;
-    padding: 1vh;
-    font-size: 80%;
-}
-
-.contenedor_botones div:nth-child(3) button{
-    border-radius: 50px;
-    padding: 1vh;
-    font-size: 80%;
-}
-
 .contenedor_botones div input{
     height: 35%;
 }
 
 .contenedor_botones div:nth-child(1) input{
     width: 65%;
-}
-
-/* --------------------------------------------------------- */
-
-.titulo_campo{
-    display: flex;
-    align-items: center;
-    padding-left: 2vw;
-    height: 10%;
 }
 
 input{
@@ -103,4 +86,41 @@ input{
     height: 35%;
     padding: 0.5vw;
     font-size: 80%;
+    display: flex;
+}
+
+.contenedor_botones div:nth-child(4) .enviar{
+    border-radius: 50px;
+    font-size: 70%;
+    padding-bottom: 3%;
+}
+
+.contenedor_botones div:nth-child(3) .enviar{
+    border-radius: 50px;
+    font-size: 70%;
+    padding-bottom: 3%;
+}
+
+/* --------------------------------------------------------- */
+
+.titulo_campo{
+    display: flex;
+    align-items: center;
+    padding-left: 2vw;
+    height: 10%;
+    transition-property: height;
+    transition-duration: 2s;
+}
+
+.ocultar_botones{
+    height: 0%;
+    display: none;
+}
+
+.reducir_cuadro{
+    height: 5vh;
+}
+
+.aumentar_titulo{
+    height: 100%;
 }
