@@ -47,7 +47,7 @@ export default function CrearMateria(){
                     <div>
                         <div>Esperado</div>
                         <input required type="number" max="5" min="0" className="number"></input>
-                        <input type="submit" onClick={() => setSelectedTab(selectedTab + 1)} className="enviar" value="Crear Materia"></input>
+                        <input type="button" onClick={() => setSelectedTab(selectedTab + 1)} className="enviar" value="Crear Materia"></input>
                     </div>
                 </form>
             </div>
@@ -65,7 +65,7 @@ export default function CrearMateria(){
                     <div>
                         <div>Obtenido</div>
                         <input required type="number" max="5" min="0" className="number"></input>
-                        <input type="submit" onClick={() => setSelectedTab(selectedTab + 1)} className="enviar" value="Crear Materia"></input>
+                        <input type="button" onClick={() => setSelectedTab(selectedTab + 1)} className="enviar" value="Crear Materia"></input>
                     </div>
                 </form>
             </div>
