@@ -100,8 +100,20 @@ input{
 }
 
 .enviar{
+    box-shadow: 1px 4px #000;
+    transition: all .325s ease;
+    position: relative;
     margin-left: 15vh;
 }
+
+.enviar:hover{
+    transform: translateY(2px);
+    box-shadow: 1px 1.5px #000;
+    cursor: pointer;
+    background: #9BC5EC;
+    color: #fff !important;
+}
+
 
 /* --------------------------------------------------------- */
 
@@ -113,13 +125,13 @@ input{
 }
 
 .ocultar_botones{
-    transition-duration: .5s;
+    transition-duration: 0.3s;
     opacity: 0;
-    height: 0%;
     visibility: hidden;
 }
 
 .reducir_cuadro{ 
+    transition-duration: 0.5s;
     height: 5vh;
 }
 
