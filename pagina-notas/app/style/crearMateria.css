@@ -16,8 +16,8 @@
     background-color: aliceblue;
     display: flex;
     flex-direction: column;
-    transition-property: height;
-    transition-duration: 1s;
+    transition: height 0.5s;
+
 }
 
 .contenedor_cuadros:nth-child(1){
@@ -52,7 +52,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    transition: height 2s, opacity 1s, visibility 1s;
 }
 
 .contenedor_botones > div{
@@ -106,20 +105,17 @@ input{
     display: flex;
     align-items: center;
     padding-left: 2vw;
-    height: 10%;
-    transition: height 1s;
-}
-
-.ocultar_botones{
-    height: 0%;
-    opacity: 0;
-    visibility: hidden;
-}
-
-.reducir_cuadro{
     height: 5vh;
 }
 
-.aumentar_titulo{
-    height: 2.3vw;
+.ocultar_botones{
+    transition-duration: .5s;
+    opacity: 0;
+    height: 0%;
+    visibility: hidden;
 }
+
+.reducir_cuadro{ 
+    height: 5vh;
+}
+
