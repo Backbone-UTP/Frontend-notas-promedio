@@ -4,13 +4,148 @@ import "../style/verNotas.css"
 
 
 const data = [
-        {id: 1, personaje: "naruto", anime: "Naruto"},
-        {id: 2, personaje: "goku", anime: "dragon ball"},
-        {id: 3, personaje: "kensing himura", anime: "kenshiind"},
-        {id: 4, personaje: "monkey", anime: "onepiece"},
-        {id: 5, personaje: "edward stark", anime: "fullmetal"},
-        {id: 6, personaje: "seto", anime: "yu-gi-oh"},
-        {id: 7, personaje: "bo", anime: "yoh"},
+        {
+            materia: "matematicas IV", 
+            cortes: [
+                {
+                    id: "1",
+                    porcentaje: "30%",
+                    notas: [
+                        {
+                            id: "1",
+                            nota: "4.5",
+                            porcentaje: "30%",
+                        },
+                        {
+                            id: "2",
+                            nota: "4.5",
+                            porcentaje: "30%",
+                        },
+                        {
+                            id: "3",
+                            nota: "4.5",
+                            porcentaje: "40%",
+                        }
+                        
+                    ], 
+                },
+                {
+                    id: "2",
+                    porcentaje: "30%",
+                    notas: [
+                        {
+                            id: "1",
+                            nota: "4.5",
+                            porcentaje: "30%",
+                        },
+                        {
+                            id: "2",
+                            nota: "4.5",
+                            porcentaje: "30%",
+                        },
+                        {
+                            id: "3",
+                            nota: "4.5",
+                            porcentaje: "40%",
+                        }
+                        
+                    ], 
+                },
+                {
+                    id: "3",
+                    porcentaje: "40%",
+                    notas: [
+                        {
+                            id: "1",
+                            nota: "4.5",
+                            porcentaje: "30%",
+                        },
+                        {
+                            id: "2",
+                            nota: "4.5",
+                            porcentaje: "30%",
+                        },
+                        {
+                            id: "3",
+                            nota: "4.5",
+                            porcentaje: "40%",
+                        }
+                        
+                    ], 
+                },
+            ]
+        },
+        {
+            materia: "fisica II", 
+            cortes: [
+                {
+                    id: "1",
+                    porcentaje: "30%",
+                    notas: [
+                        {
+                            id: "1",
+                            nota: "4.5",
+                            porcentaje: "30%",
+                        },
+                        {
+                            id: "2",
+                            nota: "4.5",
+                            porcentaje: "30%",
+                        },
+                        {
+                            id: "3",
+                            nota: "4.5",
+                            porcentaje: "40%",
+                        }
+                        
+                    ], 
+                },
+                {
+                    id: "2",
+                    porcentaje: "30%",
+                    notas: [
+                        {
+                            id: "1",
+                            nota: "4.5",
+                            porcentaje: "30%",
+                        },
+                        {
+                            id: "2",
+                            nota: "4.5",
+                            porcentaje: "30%",
+                        },
+                        {
+                            id: "3",
+                            nota: "4.5",
+                            porcentaje: "40%",
+                        }
+                        
+                    ], 
+                },
+                {
+                    id: "3",
+                    porcentaje: "40%",
+                    notas: [
+                        {
+                            id: "1",
+                            nota: "4.5",
+                            porcentaje: "30%",
+                        },
+                        {
+                            id: "2",
+                            nota: "4.5",
+                            porcentaje: "30%",
+                        },
+                        {
+                            id: "3",
+                            nota: "4.5",
+                            porcentaje: "40%",
+                        }
+                        
+                    ], 
+                },
+            ]
+        },
     ];
 
 export default function VerNotas(){
@@ -19,11 +154,27 @@ export default function VerNotas(){
     return(
         <div className="contenedor_universal">
             {data.map(e => (
-                <div>
-                <div>{e.id}</div>   
-                <div>{e.personaje}</div>  
-                <div>{e.anime}</div>  
+                <div className={selectedTab == 0 ? 'contenedor_cuadros': 'contenedor_cuadros reducir_cuadro'}>
+                <div className={selectedTab == 0 ? 'titulo_campo': 'titulo_campo aumentar_titulo'}>{e.materia}</div>
+                <div className={selectedTab == 0 ? 'contenedor_botones': 'contenedor_botones ocultar_botones'} >
+                   {e.cortes.map(i => (
+                        <div className="contenedor_corte">
+                            <div className="contenedor_nombre_corte">
+                                <div className="numero_corte">corte {i.id}</div>
+                                <div className="porcentaje_corte">porcentaje: {i.porcentaje}</div>
+                            </div>
+                            {i.notas.map(o => (
+                                <div className="contenedor_notas">
+                                    <div className="contenedor_nombre_notas">
+                                        <div className="notas_nota">nota {o.id}: {o.nota}</div>
+                                        <div className="notas_nota">{o.porcentaje}</div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                   ))}
                 </div>
+            </div>
             ))}
         </div>
     )
