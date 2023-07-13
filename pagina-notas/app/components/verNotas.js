@@ -6,6 +6,7 @@ import "../style/verNotas.css"
 const data = [
         {
             materia: "matematicas IV", 
+            id: 1,
             cortes: [
                 {
                     id: "1",
@@ -77,6 +78,7 @@ const data = [
         },
         {
             materia: "fisica II", 
+            id: 2,
             cortes: [
                 {
                     id: "1",
@@ -149,14 +151,20 @@ const data = [
     ];
 
 export default function VerNotas(){
-    const [selectedTab, setSelectedTab] = useState(0);
+    const [selectedTab, setSelectedTab] = useState(1);
+    
+    const verificacion = (id) => {
+        if(id != selectedTab){
+            setSelectedTab(id);
+        }
+    }
 
     return(
         <div className="contenedor_universal">
             {data.map(e => (
-                <div className={selectedTab == 0 ? 'contenedor_cuadros': 'contenedor_cuadros reducir_cuadro'}>
-                <div className={selectedTab == 0 ? 'titulo_campo': 'titulo_campo aumentar_titulo'}>{e.materia}</div>
-                <div className={selectedTab == 0 ? 'contenedor_botones': 'contenedor_botones ocultar_botones'} >
+                <div className={selectedTab == e.id ? 'contenedor_cuadros': 'contenedor_cuadros reducir_cuadro'}>
+                <div className={selectedTab == e.id ? 'titulo_campo': 'titulo_campo aumentar_titulo'} onClick={() => verificacion(e.id)}>{e.materia}</div>
+                <div className={selectedTab == e.id ? 'contenedor_botones': 'contenedor_botones ocultar_botones'} >
                    {e.cortes.map(i => (
                         <div className="contenedor_corte">
                             <div className="contenedor_nombre_corte">

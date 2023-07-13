@@ -31,6 +31,10 @@
     border-radius: 0 0 15px 15px;
 }
 
+.contenedor_cuadros:first-child .titulo_campo{
+    border-radius: 15px 15px 0 0;
+}
+
 .contenedor_cuadros:last-child .contenedor_botones{
     border-radius: 0 0 15px 15px;
 }
@@ -61,6 +65,21 @@
     display: flex;
     align-items: center;
     padding-left: 2vw;
+    height: 5vh;
+}
+
+.titulo_campo:hover{
+    cursor: wait;
+}
+
+.ocultar_botones{
+    transition-duration: 0.3s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.reducir_cuadro{ 
+    transition-duration: 0.5s;
     height: 5vh;
 }
 
