@@ -1,9 +1,14 @@
+.contenedor_instrucciones{
+    margin-top: 15vh; /* importante !!!!!!*/
+}
+
 .titulo_instrucciones{
     text-align: center;
     font-weight: 500;
     margin-top: 1vh;
-    font-size: 3vh;
+    font-size: 5vh;
 }
+
 
 .raya_inferior_titulo_intrucciones{
     background-color: black;

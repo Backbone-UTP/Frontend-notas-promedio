@@ -7,39 +7,55 @@
 }
 
 .nav_menu{
+    margin-top: -15vh;
     background-color: #2B4863;
     border-radius: 0 0 30px 30px;
+    width: 100vw;
+    position: fixed;
+    z-index: 100;
 }
 
 .nav_menu .nav_menu_lista{
     display: flex;
-    justify-content: center;
     align-items: center;
+<<<<<<< HEAD
 }
 
 .nav_menu .nav_menu_lista{
+=======
+>>>>>>> introduccion
     list-style: none;
-    display: flex;
-    justify-content: center;
-    font-size: 2vh;
+    justify-content: space-between;
+    margin-left: 4vw;
 }
 
 .nav_menu .nav_menu_lista .contenedor_imagen{
     display: flex;
+<<<<<<< HEAD
+=======
+    position: relative;
+>>>>>>> introduccion
     justify-content: center;
     align-items: center;
     margin-left: -10%;
 }
 
 .nav_menu .nav_menu_lista .contenedor_imagen img{
+<<<<<<< HEAD
     width: 40%;
     height: 40%;
+=======
+    margin: 1vh 1vh 1vh 0;
+    width: 20vw;
+    height: 10vh;
+>>>>>>> introduccion
 }
 
 .nav_menu .nav_menu_lista li a{
     position: relative;
     text-decoration-line: none;
     color: #fff;
+<<<<<<< HEAD
     padding-bottom: 3px ;
     border-bottom: 2px solid rgba(255, 255, 255, .5);
     font-size: 100%;
@@ -47,9 +63,13 @@
 
 .nav_menu .nav_menu_lista li a:hover{
     border-bottom: 2px solid rgba(255, 255, 255, 1);
+=======
+    padding-bottom: 3px;
+    border-bottom: 2px solid rgba(255, 255, 255, .5);
+    font-size: 2.5vh;
+>>>>>>> introduccion
 }
 
-.imagen_logo_utp{
-    width: 25vw;
-    height: 10vh;
+.nav_menu .nav_menu_lista li a:hover{
+    border-bottom: 2px solid rgba(255, 255, 255, 1);
 }

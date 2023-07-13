@@ -1,0 +1,137 @@
+.contenedor_universal{
+    margin-top: 15vh;  /* importante !!!!!!*/
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5vw;
+}
+
+/* --------------------------------------------------------- */
+
+.contenedor_cuadros{
+    width: 70%;
+    height: 50vh;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    transition: height 0.5s;
+
+}
+
+.contenedor_cuadros:nth-child(1){
+    border: 2px solid #000;
+    border-radius: 15px 15px 0 0;
+}
+
+.contenedor_cuadros:nth-child(2){
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+}
+
+.contenedor_cuadros:nth-child(3){
+    border: 2px solid #000;
+    border-radius: 0 0 15px 15px;
+}
+
+.contenedor_cuadros:nth-child(3) form{
+    border-radius: 0 0 15px 15px;
+}
+
+.contenedor_cuadros:nth-child(3) form div{
+    height: 25%;
+}
+
+/* --------------------------------------------------------- */
+
+.contenedor_botones{
+    border-top: 2px solid #000;
+    background-color: #D3D3D3;
+    height: 90%;    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contenedor_botones > div{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    padding-left: 7vw;
+    align-items: center;
+}
+
+.contenedor_botones div div:nth-child(1){
+    height: 100%;
+    width: 30%;
+    display: flex;
+    align-items: center;
+}
+
+.contenedor_botones div input{
+    height: 35%;
+}
+
+.contenedor_botones div:nth-child(1) input{
+    width: 65%;
+}
+
+input{
+    border-radius: 10px;
+    border: 1.5px solid #000;
+    box-shadow: 1px 1.5px #000 ;
+    height: 35%;
+    padding: 0.5vw;
+    font-size: 80%;
+    display: flex;
+}
+
+.contenedor_botones div:nth-child(4) .enviar{
+    border-radius: 50px;
+    font-size: 70%;
+    padding-bottom: 3%;
+}
+
+.contenedor_botones div:nth-child(3) .enviar{
+    border-radius: 50px;
+    font-size: 70%;
+    padding-bottom: 3%;
+}
+
+.enviar{
+    box-shadow: 1px 4px #000;
+    transition: all .325s ease;
+    position: relative;
+    margin-left: 15vh;
+}
+
+.enviar:hover{
+    transform: translateY(2px);
+    box-shadow: 1px 1.5px #000;
+    cursor: pointer;
+    /*background: #9BC5EC;
+    color: #fff !important;*/
+}
+
+
+/* --------------------------------------------------------- */
+
+.titulo_campo{
+    display: flex;
+    align-items: center;
+    padding-left: 2vw;
+    height: 5vh;
+}
+
+.ocultar_botones{
+    transition-duration: 0.3s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.reducir_cuadro{ 
+    transition-duration: 0.5s;
+    height: 5vh;
+}
+
