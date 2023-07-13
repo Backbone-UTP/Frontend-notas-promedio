@@ -1,5 +1,7 @@
 .contenedor_instrucciones{
     margin-top: 15vh; /* importante !!!!!!*/
+    height: 78vh;
+    overflow-y: scroll;
 }
 
 .titulo_instrucciones{
