@@ -15,7 +15,6 @@ const data = [
 
 export default function VerNotas(){
     const [selectedTab, setSelectedTab] = useState(0);
-    
 
     return(
         <div className="contenedor_universal">
