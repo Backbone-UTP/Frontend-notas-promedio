@@ -18,12 +18,6 @@
 .nav_menu .nav_menu_lista{
     display: flex;
     align-items: center;
-<<<<<<< HEAD
-}
-
-.nav_menu .nav_menu_lista{
-=======
->>>>>>> baac805e332694af8a2fe7256cdc83bc6072ce32
     list-style: none;
     justify-content: space-between;
     margin-left: 4vw;
@@ -31,43 +25,25 @@
 
 .nav_menu .nav_menu_lista .contenedor_imagen{
     display: flex;
-<<<<<<< HEAD
-=======
     position: relative;
->>>>>>> baac805e332694af8a2fe7256cdc83bc6072ce32
     justify-content: center;
     align-items: center;
     margin-left: -10%;
 }
 
 .nav_menu .nav_menu_lista .contenedor_imagen img{
-<<<<<<< HEAD
-    width: 40%;
-    height: 40%;
-=======
     margin: 1vh 1vh 1vh 0;
     width: 20vw;
     height: 10vh;
->>>>>>> baac805e332694af8a2fe7256cdc83bc6072ce32
 }
 
 .nav_menu .nav_menu_lista li a{
     position: relative;
     text-decoration-line: none;
     color: #fff;
-<<<<<<< HEAD
-    padding-bottom: 3px ;
-    border-bottom: 2px solid rgba(255, 255, 255, .5);
-    font-size: 100%;
-}
-
-.nav_menu .nav_menu_lista li a:hover{
-    border-bottom: 2px solid rgba(255, 255, 255, 1);
-=======
     padding-bottom: 3px;
     border-bottom: 2px solid rgba(255, 255, 255, .5);
     font-size: 2.5vh;
->>>>>>> baac805e332694af8a2fe7256cdc83bc6072ce32
 }
 
 .nav_menu .nav_menu_lista li a:hover{
