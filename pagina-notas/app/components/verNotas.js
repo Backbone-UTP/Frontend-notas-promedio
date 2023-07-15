@@ -148,6 +148,28 @@ const data = [
                 },
             ]
         },
+        {
+            materia:"Introduccion a la bareta I",
+            id: 3,
+            cortes: [
+                {
+                    id: "1",
+                    porcentaje: "100",
+                    notas: [
+                        {
+                            id: "1",
+                            nota: "6.9",
+                            porcentaje: "100%",
+                        },
+                        {
+                            id: "2",
+                            nota: "5.0",
+                            porcentaje: "10%",
+                        }
+                    ],
+                }
+            ]
+        },
     ];
 
 export default function VerNotas(){
