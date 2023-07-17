@@ -51,6 +51,16 @@
     overflow-x: hidden;
 }
 
+.contenedor_botones::-webkit-scrollbar {
+    width: 10px;
+    height: 5px;
+}
+
+.contenedor_botones::-webkit-scrollbar-thumb:hover{
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
 .contenedor_botones > div{
     width: 100%;
     height: 20%;
