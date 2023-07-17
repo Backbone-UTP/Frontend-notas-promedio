@@ -78,7 +78,11 @@
 .contenedor_corte div{
     display: flex;
     flex-direction: row;
-    margin-right: 8vw;
+    margin-right: 10vw;
+}
+
+.contenedor_corte:last-child{
+    margin-bottom: 2vh;
 }
 
 .contenedor_nombre_corte {

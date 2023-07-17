@@ -190,13 +190,13 @@ export default function VerNotas(){
                    {e.cortes.map(i => (
                         <div className="contenedor_corte">
                             <div className="contenedor_nombre_corte">
-                                <div className="numero_corte">corte {i.id}</div>
-                                <div className="porcentaje_corte">porcentaje: {i.porcentaje}</div>
+                                <div className="numero_corte">Corte {i.id}</div>
+                                <div className="porcentaje_corte">Porcentaje: {i.porcentaje}</div>
                             </div>
                             {i.notas.map(o => (
                                 <div className="contenedor_notas">
                                     <div className="contenedor_nombre_notas">
-                                        <div className="notas_nota">nota {o.id}: {o.nota}</div>
+                                        <div className="notas_nota"><b>Nota {o.id}:</b>&nbsp;&nbsp;{o.nota}</div>
                                         <div className="notas_nota">{o.porcentaje}</div>
                                     </div>
                                 </div>
