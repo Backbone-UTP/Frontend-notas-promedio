@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react"
-import "../style/verNotas.css"
+import "../style/editarNotas.css"
 
 
 const data = [
@@ -187,19 +187,19 @@ export default function EditarNotas(){
             <div className={selectedTab == 0 ? 'contenedor_cuadros': 'contenedor_cuadros reducir_cuadro'}>
                 <div className={selectedTab == 0 ? 'titulo_campo': 'titulo_campo aumentar_titulo'} >Materia</div>
                 <div className={selectedTab == 0 ? 'contenedor_botones': 'contenedor_botones ocultar_botones'} >
-                    <div className="nombre_Materia">Nombre Materia</div>
+                    <div className="nombre_materia">Nombre Materia</div>
 
                     <input type="text" placeholder="ingrese la materia" className="filtrar_materia" />
                         
                     <div className="contenedor_materias">
                         {data.map(e => (
-                            <div> {e.materia} </div>
+                            <div className="materia"> {e.materia} </div>
                         ))}
                     </div>
-
-                    <button>Editar Corte</button>
-                    <button>Crear Corte</button>
-
+                    <div className="contenedor_botones_inferiores">
+                        <button className="boton_editar">Editar Corte</button>
+                        <button className="boton_crear">Crear Corte</button>
+                    </div>
                 </div>
             </div>
             <div className={selectedTab == 0 ? 'contenedor_cuadros': 'contenedor_cuadros reducir_cuadro'}>
