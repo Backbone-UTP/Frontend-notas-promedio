@@ -29,7 +29,7 @@ export default function CrearMateria(){
                     <div>
                         <div>Esperado</div>
                         <input required type="number" max="5" min="0" className="number" value={selectedEsperado} onChange={e => (parseInt(e.target.value) >= 0 && parseInt(e.target.value) <= 5) ? setEsperado(e.target.value): setEsperado('')}></input>
-                        <input type="button" onClick={() => (selectedNombreMateria != '' && selectedCreditos != '' && selectedObtenido != '' && selectedEsperado != '') ? (setSelectedTab(selectedTab + 1), setNombreMateria(''),  setCreditos(''),  setObtenido(''),  setEsperado('')) : alert("NO VE QUE NO HA LLENADO EL CAMPO AGUEVADO")} className="enviar" value="Crear Materia"></input>
+                        <input type="button" onClick={() => (selectedNombreMateria != '' && selectedCreditos != '' && selectedObtenido != '' && selectedEsperado != '') ? (setSelectedTab(selectedTab + 1), setNombreMateria(''),  setCreditos(''),  setObtenido(''),  setEsperado('')) : alert("NO VE QUE NO HA LLENADO EL CAMPO AGUEVADO")} className="enviar" value="Crear Corte"></input>
                     </div>
                 </form>
             </div>
@@ -51,7 +51,7 @@ export default function CrearMateria(){
                     <div>
                         <div>Esperado</div>
                         <input required type="number" max="5" min="0" className="number" value={selectedEsperado} onChange={e => (parseInt(e.target.value) >= 0 && parseInt(e.target.value) <= 5) ? setEsperado(e.target.value): setEsperado('')}></input>
-                        <input type="button" onClick={() => (selectedNombreMateria != '' && selectedCreditos != '' && selectedObtenido != '' && selectedEsperado != '') ? (setSelectedTab(selectedTab + 1), setNombreMateria(''),  setCreditos(''),  setObtenido(''),  setEsperado('')) : alert("NO VE QUE NO HA LLENADO EL CAMPO AGUEVADO")} className="enviar" value="Crear Materia"></input>
+                        <input type="button" onClick={() => (selectedNombreMateria != '' && selectedCreditos != '' && selectedObtenido != '' && selectedEsperado != '') ? (setSelectedTab(selectedTab + 1), setNombreMateria(''),  setCreditos(''),  setObtenido(''),  setEsperado('')) : alert("NO VE QUE NO HA LLENADO EL CAMPO AGUEVADO")} className="enviar" value="Crear Nota"></input>
                     </div>
                 </form>
             </div>
