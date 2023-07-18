@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react"
-import "../style/verNotas.css"
+import "../style/editarNotas.css"
 
 
 const data = [
@@ -179,7 +179,7 @@ export default function EditarNotas(){
     const [valorBoton, setValorBoton] = useState(0);
 
     const validarNombreMateria = (valorInput) => valorInput.materia == nombreMateria  
-    const validarTeclaEnter = (evento) => {evento.key == "Enter" ? data.findIndex(validarNombreMateria) != -1 ? setIdMateria(data.findIndex(validarNombreMateria)) : setIdMateria(0) : setIdMateria(0)}
+    const validarTeclaEnter = (evento) => {evento.key == "Enter" ? data.findIndex(validarNombreMateria) != -1 ? setIdMateria(data.findIndex(validarNombreMateria) + 1) : setIdMateria(0) : setIdMateria(0)}
 
 
     return(
@@ -188,19 +188,19 @@ export default function EditarNotas(){
             <div className={selectedTab == 0 ? 'contenedor_cuadros': 'contenedor_cuadros reducir_cuadro'}>
                 <div className={selectedTab == 0 ? 'titulo_campo': 'titulo_campo aumentar_titulo'} >Materia</div>
                 <div className={selectedTab == 0 ? 'contenedor_botones': 'contenedor_botones ocultar_botones'} >
-                    <div className="nombre_Materia">Nombre Materia</div>
+                    <div className="nombre_materia">Nombre Materia</div>
 
                     <input type="text" placeholder="ingrese la materia" className="filtrar_materia" value={nombreMateria} onKeyDown={e => validarTeclaEnter(e)} onChange={e => setNombreMateria(e.target.value)} />
                         
                     <div className="contenedor_materias">
                         {data.map(e => (
-                            <div key={e.id} onClick={() => (setIdMateria(e.id), setNombreMateria(e.materia))}> {e.materia} </div>
+                           <div key={e.id} onClick={() => (setIdMateria(e.id), setNombreMateria(e.materia))}> {e.materia} </div>
                         ))}
                     </div>
-
-                    <button onClick={() => idMateria != 0 ? (setValorBoton(1), setSelectedTab(1)) : alert("No has seleccionado ninguna materia")}>Editar Corte</button>
-                    <button onClick={() => idMateria != 0 ? (setValorBoton(2), setSelectedTab(1)) : alert("No has seleccionado ninguna materia")}>Crear Corte</button>
-
+                    <div className="contenedor_botones_inferiores">
+                    <button className="boton_editar" onClick={() => idMateria != 0 ? (setValorBoton(1), setSelectedTab(1)) : alert("No has seleccionado ninguna materia")}>Editar Corte</button>
+                    <button className="boton_crear" onClick={() => idMateria != 0 ? (setValorBoton(2), setSelectedTab(1)) : alert("No has seleccionado ninguna materia")}>Crear Corte</button>
+                    </div>
                 </div>
             </div>
             <div className={selectedTab == 1 ? 'contenedor_cuadros': 'contenedor_cuadros reducir_cuadro'}>
