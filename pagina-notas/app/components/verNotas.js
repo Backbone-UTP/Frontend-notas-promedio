@@ -184,20 +184,20 @@ export default function VerNotas(){
     return(
         <div className="contenedor_universal">
             {data.map(e => (
-                <div className={selectedTab == e.id ? 'contenedor_cuadros': 'contenedor_cuadros reducir_cuadro'}>
-                <div className={selectedTab == e.id ? 'titulo_campo': 'titulo_campo aumentar_titulo'} onClick={() => verificacion(e.id)}>{e.materia}</div>
-                <div className={selectedTab == e.id ? 'contenedor_botones': 'contenedor_botones ocultar_botones'} >
+                <div key={e.id}  className={selectedTab == e.id ? 'contenedor_cuadros': 'contenedor_cuadros reducir_cuadro'}>
+                <div key={e.id}  className={selectedTab == e.id ? 'titulo_campo': 'titulo_campo aumentar_titulo'} onClick={() => verificacion(e.id)}>{e.materia}</div>
+                <div key={e.id}  className={selectedTab == e.id ? 'contenedor_botones': 'contenedor_botones ocultar_botones'} >
                    {e.cortes.map(i => (
-                        <div className="contenedor_corte">
-                            <div className="contenedor_nombre_corte">
-                                <div className="numero_corte">Corte {i.id}</div>
-                                <div className="porcentaje_corte">Porcentaje: {i.porcentaje}</div>
+                        <div key={i.id}  className="contenedor_corte">
+                            <div key={i.id} className="contenedor_nombre_corte">
+                                <div key={i.id} className="numero_corte">Corte {i.id}</div>
+                                <div key={i.id} className="porcentaje_corte">Porcentaje: {i.porcentaje}</div>
                             </div>
                             {i.notas.map(o => (
-                                <div className="contenedor_notas">
-                                    <div className="contenedor_nombre_notas">
-                                        <div className="notas_nota"><b>Nota {o.id}:</b>&nbsp;&nbsp;{o.nota}</div>
-                                        <div className="notas_nota">{o.porcentaje}</div>
+                                <div key={o.id} className="contenedor_notas">
+                                    <div key={o.id} className="contenedor_nombre_notas">
+                                        <div key={o.id} className="notas_nota"><b>Nota {o.id}:</b>&nbsp;&nbsp;{o.nota}</div>
+                                        <div key={o.id} className="notas_nota">{o.porcentaje}</div>
                                     </div>
                                 </div>
                             ))}

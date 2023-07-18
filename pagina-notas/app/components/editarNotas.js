@@ -173,44 +173,45 @@ const data = [
     ];
 
 export default function EditarNotas(){
-
+    const [nombreMateria, setNombreMateria] = useState('')
+    const [idMateria, setIdMateria] = useState(0)
     const [selectedTab, setSelectedTab] = useState(0);
-    
-    const verificacion = (id) => {
-        if(id != selectedTab){
-            setSelectedTab(id);
-        }
-    }
+    const [valorBoton, setValorBoton] = useState(0);
+
+    const validarNombreMateria = (valorInput) => valorInput.materia == nombreMateria  
+    const validarTeclaEnter = (evento) => {evento.key == "Enter" ? data.findIndex(validarNombreMateria) != -1 ? setIdMateria(data.findIndex(validarNombreMateria)) : setIdMateria(0) : setIdMateria(0)}
+
 
     return(
+        
         <div className="contenedor_universal">
             <div className={selectedTab == 0 ? 'contenedor_cuadros': 'contenedor_cuadros reducir_cuadro'}>
                 <div className={selectedTab == 0 ? 'titulo_campo': 'titulo_campo aumentar_titulo'} >Materia</div>
                 <div className={selectedTab == 0 ? 'contenedor_botones': 'contenedor_botones ocultar_botones'} >
                     <div className="nombre_Materia">Nombre Materia</div>
 
-                    <input type="text" placeholder="ingrese la materia" className="filtrar_materia" />
+                    <input type="text" placeholder="ingrese la materia" className="filtrar_materia" value={nombreMateria} onKeyDown={e => validarTeclaEnter(e)} onChange={e => setNombreMateria(e.target.value)} />
                         
                     <div className="contenedor_materias">
                         {data.map(e => (
-                            <div> {e.materia} </div>
+                            <div key={e.id} onClick={() => (setIdMateria(e.id), setNombreMateria(e.materia))}> {e.materia} </div>
                         ))}
                     </div>
 
-                    <button>Editar Corte</button>
-                    <button>Crear Corte</button>
+                    <button onClick={() => idMateria != 0 ? (setValorBoton(1), setSelectedTab(1)) : alert("No has seleccionado ninguna materia")}>Editar Corte</button>
+                    <button onClick={() => idMateria != 0 ? (setValorBoton(2), setSelectedTab(1)) : alert("No has seleccionado ninguna materia")}>Crear Corte</button>
 
                 </div>
             </div>
-            <div className={selectedTab == 0 ? 'contenedor_cuadros': 'contenedor_cuadros reducir_cuadro'}>
-                <div className={selectedTab == 0 ? 'titulo_campo': 'titulo_campo aumentar_titulo'} >Corte</div>
-                <div className={selectedTab == 0 ? 'contenedor_botones': 'contenedor_botones ocultar_botones'} >
+            <div className={selectedTab == 1 ? 'contenedor_cuadros': 'contenedor_cuadros reducir_cuadro'}>
+                <div className={selectedTab == 1 ? 'titulo_campo': 'titulo_campo aumentar_titulo'} >Corte</div>
+                <div className={selectedTab == 1 ? 'contenedor_botones': 'contenedor_botones ocultar_botones'} >
 
                 </div>
             </div>
-            <div className={selectedTab == 0 ? 'contenedor_cuadros': 'contenedor_cuadros reducir_cuadro'}>
-                <div className={selectedTab == 0 ? 'titulo_campo': 'titulo_campo aumentar_titulo'} >Nota</div>
-                <div className={selectedTab == 0 ? 'contenedor_botones': 'contenedor_botones ocultar_botones'} >
+            <div className={selectedTab == 2 ? 'contenedor_cuadros': 'contenedor_cuadros reducir_cuadro'}>
+                <div className={selectedTab == 2 ? 'titulo_campo': 'titulo_campo aumentar_titulo'} >Nota</div>
+                <div className={selectedTab == 2 ? 'contenedor_botones': 'contenedor_botones ocultar_botones'} >
                     
                 </div>
             </div>
