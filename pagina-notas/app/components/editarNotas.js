@@ -173,14 +173,34 @@ const data = [
     ];
 
 export default function EditarNotas(){
-    const [nombreMateria, setNombreMateria] = useState('')
-    const [idMateria, setIdMateria] = useState(0)
+
+    const [nombreMateria, setNombreMateria] = useState('');
     const [selectedTab, setSelectedTab] = useState(0);
-    const [valorBoton, setValorBoton] = useState(0);
+    const [idCorte, setIdCorte] = useState(0);
+    const [idMateria, setIdMateria] = useState(-1);
+    const [botonElegido, setBotonElegido] = useState(1)
 
-    const validarNombreMateria = (valorInput) => valorInput.materia == nombreMateria  
-    const validarTeclaEnter = (evento) => {evento.key == "Enter" ? data.findIndex(validarNombreMateria) != -1 ? setIdMateria(data.findIndex(validarNombreMateria) + 1) : setIdMateria(0) : setIdMateria(0)}
+    const contenidoCorte = () => {
+        if(botonElegido == 0){
+            return(<div>
+                <div className="nombre_materia"> Numero del corte</div>
 
+                <input disabled placeholder="selecciona el corte" className="filtrar_materia" value={"corte " + idCorte } />
+                    
+                <div className="contenedor_materias">
+                    {data[idMateria].cortes.map(e => ( 
+                    <div key={e.id} onClick={() => setIdCorte(e.id)}> corte {e.id} </div>
+                    ))}
+                </div>
+
+                <div className="contenedor_botones_inferiores">
+                    <button className="boton_editar" onClick={() => idCorte != 0 ? setSelectedTab(2) : alert("No has seleccionado ningun corte")}>Editar Nota</button>
+                </div>
+            </div>)
+        }else{
+            return(<div>adios</div>)
+        }
+    }
 
     return(
         
@@ -190,25 +210,29 @@ export default function EditarNotas(){
                 <div className={selectedTab == 0 ? 'contenedor_botones': 'contenedor_botones ocultar_botones'} >
                     <div className="nombre_materia">Nombre Materia</div>
 
-                    <input type="text" placeholder="ingrese la materia" className="filtrar_materia" value={nombreMateria} onKeyDown={e => validarTeclaEnter(e)} onChange={e => setNombreMateria(e.target.value)} />
+                    <input disabled placeholder="selecciona la materia" className="filtrar_materia" value={nombreMateria}/>
                         
                     <div className="contenedor_materias">
-                        {data.map(e => (
-                           <div key={e.id} onClick={() => (setIdMateria(e.id), setNombreMateria(e.materia))}> {e.materia} </div>
+                        {data.map(e => ( 
+                        <div key={e.id} onClick={() => (setIdMateria(e.id - 1), setNombreMateria(e.materia))}> {e.materia} </div>
                         ))}
                     </div>
+
                     <div className="contenedor_botones_inferiores">
-                    <button className="boton_editar" onClick={() => idMateria != 0 ? (setValorBoton(1), setSelectedTab(1)) : alert("No has seleccionado ninguna materia")}>Editar Corte</button>
-                    <button className="boton_crear" onClick={() => idMateria != 0 ? (setValorBoton(2), setSelectedTab(1)) : alert("No has seleccionado ninguna materia")}>Crear Corte</button>
+                        <button className="boton_editar" onClick={() => idMateria != -1 ? (setSelectedTab(1), setBotonElegido(0)) : alert("No has seleccionado ninguna materia")}>Editar Corte</button>
+
+                        <button className="boton_crear" onClick={() => idMateria != -1 ? (setSelectedTab(1), setBotonElegido(1)) : alert("No has seleccionado ninguna materia")}>Crear Corte</button>
                     </div>
                 </div>
             </div>
+
             <div className={selectedTab == 1 ? 'contenedor_cuadros': 'contenedor_cuadros reducir_cuadro'}>
                 <div className={selectedTab == 1 ? 'titulo_campo': 'titulo_campo aumentar_titulo'} >Corte</div>
                 <div className={selectedTab == 1 ? 'contenedor_botones': 'contenedor_botones ocultar_botones'} >
-
+                    {contenidoCorte()}
                 </div>
             </div>
+
             <div className={selectedTab == 2 ? 'contenedor_cuadros': 'contenedor_cuadros reducir_cuadro'}>
                 <div className={selectedTab == 2 ? 'titulo_campo': 'titulo_campo aumentar_titulo'} >Nota</div>
                 <div className={selectedTab == 2 ? 'contenedor_botones': 'contenedor_botones ocultar_botones'} >
