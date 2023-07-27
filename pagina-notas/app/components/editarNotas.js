@@ -176,29 +176,88 @@ export default function EditarNotas(){
 
     const [nombreMateria, setNombreMateria] = useState('');
     const [selectedTab, setSelectedTab] = useState(0);
-    const [idCorte, setIdCorte] = useState(0);
+    const [idCorte, setIdCorte] = useState(-1);
     const [idMateria, setIdMateria] = useState(-1);
     const [botonElegido, setBotonElegido] = useState(1)
+
+    const [selectedCreditos, setCreditos] = useState('')
+    const [selectedObtenido, setObtenido] = useState('')
+    const [selectedEsperado, setEsperado] = useState('')
+    const [nombreCorte, setNombreCorte] = useState('')
 
     const contenidoCorte = () => {
         if(botonElegido == 0){
             return(<div>
                 <div className="nombre_materia"> Numero del corte</div>
 
-                <input disabled placeholder="selecciona el corte" className="filtrar_materia" value={"corte " + idCorte } />
+                <input disabled placeholder="selecciona el corte" className="filtrar_materia" value={"corte " + (idCorte + 1) } />
                     
                 <div className="contenedor_materias">
                     {data[idMateria].cortes.map(e => ( 
-                    <div key={e.id} onClick={() => setIdCorte(e.id)}> corte {e.id} </div>
+                    <div key={e.id} onClick={() => setIdCorte(e.id - 1)}> corte {e.id} </div>
                     ))}
                 </div>
 
                 <div className="contenedor_botones_inferiores">
-                    <button className="boton_editar" onClick={() => idCorte != 0 ? setSelectedTab(2) : alert("No has seleccionado ningun corte")}>Editar Nota</button>
+                    <button className="boton_editar" onClick={() => idCorte != -1 ? (setSelectedTab(2), setBotonElegido(3)) : alert("No has seleccionado ningun corte")}>Editar Nota</button>
                 </div>
             </div>)
+        }else if(botonElegido == 1){
+            return(
+            <form>
+                <div>
+                    <div>Nombre Corte</div>
+                    <input required type="text" onChange={e => setNombreCorte(e.target.value)}></input>
+                </div>
+                <div>
+                    <div>Porcentaje</div>
+                    <input required type="number" max="100" min="0" className="number" value={selectedCreditos} onChange={e => (parseInt(e.target.value) > 0 && parseInt(e.target.value) <= 100) ? setCreditos(e.target.value): setCreditos('')}></input>
+                </div>
+                <div>
+                    <div>Obtenido</div>
+                    <input required type="number" max="5" min="0" className="number" value={selectedObtenido} onChange={e => (parseInt(e.target.value) >= 0 && parseInt(e.target.value) <= 5) ? setObtenido(e.target.value): setObtenido('')}></input>
+                            </div>
+                <div>
+                    <div>Esperado</div>
+                    <input required type="number" max="5" min="0" className="number" value={selectedEsperado} onChange={e => (parseInt(e.target.value) >= 0 && parseInt(e.target.value) <= 5) ? setEsperado(e.target.value): setEsperado('')}></input>
+
+                    <input type="button" onClick={() => (nombreCorte != '' && selectedCreditos != '' && selectedObtenido != '' && selectedEsperado != '') ? (setSelectedTab(selectedTab + 1), setNombreCorte(''),  setCreditos(''),  setObtenido(''),  setEsperado('')) : alert("NO VE QUE NO HA LLENADO EL CAMPO AGUEVADO")} className="enviar" value="Crear Nota"></input>
+                </div>
+            </form>)
+        }
+    }
+
+    const contenidoNota = () => {
+        if(botonElegido == 3){
+            return(<div>
+                <div>corte {idCorte + 1}</div>
+                <div>porcentaje: {data[idMateria].cortes[idCorte].porcentaje}</div>
+                {data[idMateria].cortes[idCorte].notas.map(e => ( 
+                    <div key={e.id}> 
+                    <div key={e.id}>nota {e.id}</div>
+                    <div key={e.id}>{e.nota}</div>
+                    <div key={e.id}>{e.porcentaje}</div>
+                    </div>
+                    ))}
+            </div>)
         }else{
-            return(<div>adios</div>)
+            return(
+            <form>
+                <div>
+                    <div>Nombre Nota</div>
+                    <input required type="text"  onChange={e => setNombreCorte(e.target.value)}></input>
+                </div>
+                <div>
+                    <div>Porcentaje</div>
+                    <input required type="number" max="100" min="0" className="number" value={selectedCreditos} onChange={e => (parseInt(e.target.value) > 0 && parseInt(e.target.value) <= 100) ? setCreditos(e.target.value): setCreditos('')}></input>
+                </div>
+                <div>
+                    <div>Obtenido</div>
+                    <input required type="number" max="5" min="0" className="number" value={selectedObtenido}  onChange={e => (parseInt(e.target.value) >= 0 && parseInt(e.target.value) <= 5) ? setObtenido(e.target.value): setObtenido('')}></input>
+
+                    <input type="button" onClick={() => (nombreCorte != '' && selectedCreditos != '' && selectedObtenido != '') ? (setNombreCorte(''),  setCreditos(''),  setObtenido(''),  setEsperado(''), window.location.href="/ver-notas") : alert("NO VE QUE NO HA LLENADO EL CAMPO AGUEVADO")} className="enviar" value="Crear Materia"></input>
+                </div>
+            </form>)
         }
     }
 
@@ -236,7 +295,7 @@ export default function EditarNotas(){
             <div className={selectedTab == 2 ? 'contenedor_cuadros': 'contenedor_cuadros reducir_cuadro'}>
                 <div className={selectedTab == 2 ? 'titulo_campo': 'titulo_campo aumentar_titulo'} >Nota</div>
                 <div className={selectedTab == 2 ? 'contenedor_botones': 'contenedor_botones ocultar_botones'} >
-                    
+                    {contenidoNota()}
                 </div>
             </div>
         </div>
