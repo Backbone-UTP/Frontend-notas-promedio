@@ -69,7 +69,7 @@ export default function CrearMateria(){
                     <div>
                         <div>Obtenido</div>
                         <input required type="number" max="5" min="0" className="number" value={selectedObtenido}  onChange={e => (parseInt(e.target.value) >= 0 && parseInt(e.target.value) <= 5) ? setObtenido(e.target.value): setObtenido('')}></input>
-                        <input type="button" onClick={() => (selectedNombreMateria != '' && selectedCreditos != '' && selectedObtenido != '') ? (setSelectedTab(selectedTab + 1), setNombreMateria(''),  setCreditos(''),  setObtenido(''),  setEsperado(''), window.location.href="/verNotas") : alert("NO VE QUE NO HA LLENADO EL CAMPO AGUEVADO")} className="enviar" value="Crear Materia"></input>
+                        <input type="button" onClick={() => (selectedNombreMateria != '' && selectedCreditos != '' && selectedObtenido != '') ? (setSelectedTab(selectedTab + 1), setNombreMateria(''),  setCreditos(''),  setObtenido(''),  setEsperado(''), window.location.href="/ver-notas") : alert("NO VE QUE NO HA LLENADO EL CAMPO AGUEVADO")} className="enviar" value="Crear Materia"></input>
                     </div>
                 </form>
             </div>
