@@ -21,17 +21,17 @@
 }
 
 .contenedor_cuadros:nth-child(1){
-    border: 2px solid #000;
+    border: 3px solid #000;
     border-radius: 15px 15px 0 0;
 }
 
 .contenedor_cuadros:nth-child(2){
-    border-left: 2px solid #000;
-    border-right: 2px solid #000;
+    border-left: 3px solid #000;
+    border-right: 3px solid #000;
 }
 
 .contenedor_cuadros:nth-child(3){
-    border: 2px solid #000;
+    border: 3px solid #000;
     border-radius: 0 0 15px 15px;
 }
 
@@ -46,7 +46,7 @@
 /* --------------------------------------------------------- */
 
 .contenedor_botones{
-    border-top: 2px solid #000;
+    border-top: 3px solid #000;
     background-color: #D3D3D3;
     height: 90%;    
     display: flex;
