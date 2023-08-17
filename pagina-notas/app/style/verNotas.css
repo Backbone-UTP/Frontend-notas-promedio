@@ -17,18 +17,18 @@
     display: flex;
     flex-direction: column;
     transition: height 0.5s;
-    border-left: 2px solid #000;
-    border-right: 2px solid #000;
-    border-bottom: 2px solid #000 !important;
+    border-left: 3px solid #000;
+    border-right: 3px solid #000;
+    border-bottom: 3px solid #000 !important;
 }
 
 .contenedor_cuadros:first-child{
-    border: 2px solid #000;
+    border: 3px solid #000;
     border-radius: 15px 15px 0 0;
 }
 
 .contenedor_cuadros:last-child{
-    border-bottom: 2px solid #000;
+    border-bottom: 3px solid #000;
     border-radius: 0 0 15px 15px;
 }
 
@@ -115,7 +115,7 @@
 }
 
 .titulo_campo:hover{
-    cursor: progress;
+    cursor: pointer;
 }
 
 .ocultar_botones{
