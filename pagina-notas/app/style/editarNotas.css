@@ -115,7 +115,7 @@
 }
 
 .titulo_campo:hover{
-    cursor: progress;
+    cursor: pointer;
 }
 
 .ocultar_botones{
