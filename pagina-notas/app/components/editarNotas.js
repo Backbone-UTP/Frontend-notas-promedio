@@ -10,66 +10,66 @@ const data = [
             cortes: [
                 {
                     id: "1",
-                    porcentaje: "30%",
+                    porcentaje: "30",
                     notas: [
                         {
                             id: "1",
                             nota: "4.5",
-                            porcentaje: "30%",
+                            porcentaje: "30",
                         },
                         {
                             id: "2",
                             nota: "4.5",
-                            porcentaje: "30%",
+                            porcentaje: "30",
                         },
                         {
                             id: "3",
                             nota: "4.5",
-                            porcentaje: "40%",
+                            porcentaje: "40",
                         }
                         
                     ], 
                 },
                 {
                     id: "2",
-                    porcentaje: "30%",
+                    porcentaje: "30",
                     notas: [
                         {
                             id: "1",
                             nota: "4.5",
-                            porcentaje: "30%",
+                            porcentaje: "30",
                         },
                         {
                             id: "2",
                             nota: "4.5",
-                            porcentaje: "30%",
+                            porcentaje: "30",
                         },
                         {
                             id: "3",
                             nota: "4.5",
-                            porcentaje: "40%",
+                            porcentaje: "40",
                         }
                         
                     ], 
                 },
                 {
                     id: "3",
-                    porcentaje: "40%",
+                    porcentaje: "40",
                     notas: [
                         {
                             id: "1",
                             nota: "4.5",
-                            porcentaje: "30%",
+                            porcentaje: "30",
                         },
                         {
                             id: "2",
                             nota: "4.5",
-                            porcentaje: "30%",
+                            porcentaje: "30",
                         },
                         {
                             id: "3",
                             nota: "4.5",
-                            porcentaje: "40%",
+                            porcentaje: "40",
                         }
                         
                     ], 
@@ -82,66 +82,66 @@ const data = [
             cortes: [
                 {
                     id: "1",
-                    porcentaje: "30%",
+                    porcentaje: "30",
                     notas: [
                         {
                             id: "1",
                             nota: "4.5",
-                            porcentaje: "30%",
+                            porcentaje: "30",
                         },
                         {
                             id: "2",
                             nota: "4.5",
-                            porcentaje: "30%",
+                            porcentaje: "30",
                         },
                         {
                             id: "3",
                             nota: "4.5",
-                            porcentaje: "40%",
+                            porcentaje: "40",
                         }
                         
                     ], 
                 },
                 {
                     id: "2",
-                    porcentaje: "30%",
+                    porcentaje: "30",
                     notas: [
                         {
                             id: "1",
                             nota: "4.5",
-                            porcentaje: "30%",
+                            porcentaje: "30",
                         },
                         {
                             id: "2",
                             nota: "4.5",
-                            porcentaje: "30%",
+                            porcentaje: "30",
                         },
                         {
                             id: "3",
                             nota: "4.5",
-                            porcentaje: "40%",
+                            porcentaje: "40",
                         }
                         
                     ], 
                 },
                 {
                     id: "3",
-                    porcentaje: "40%",
+                    porcentaje: "40",
                     notas: [
                         {
                             id: "1",
                             nota: "4.5",
-                            porcentaje: "30%",
+                            porcentaje: "30",
                         },
                         {
                             id: "2",
                             nota: "4.5",
-                            porcentaje: "30%",
+                            porcentaje: "30",
                         },
                         {
                             id: "3",
                             nota: "4.5",
-                            porcentaje: "40%",
+                            porcentaje: "40",
                         }
                         
                     ], 
@@ -159,12 +159,12 @@ const data = [
                         {
                             id: "1",
                             nota: "6.9",
-                            porcentaje: "100%",
+                            porcentaje: "100",
                         },
                         {
                             id: "2",
                             nota: "5.0",
-                            porcentaje: "10%",
+                            porcentaje: "10",
                         }
                     ],
                 }
@@ -184,6 +184,17 @@ export default function EditarNotas(){
     const [selectedObtenido, setObtenido] = useState('')
     const [selectedEsperado, setEsperado] = useState('')
     const [nombreCorte, setNombreCorte] = useState('')
+
+    const [valorcheckbox, setvalorcheckbox] = useState(false)
+
+
+    const opcionPorcentajeCorte = (valor) => {
+        if(valorcheckbox == true){
+            return <input type="number" max="100" min="0" placeholder={valor}></input>
+        }else{
+            return <div>porcentaje: {valor} %</div>
+        }
+    }
 
     const contenidoCorte = () => {
         if(botonElegido == 0){
@@ -229,16 +240,24 @@ export default function EditarNotas(){
 
     const contenidoNota = () => {
         if(botonElegido == 3){
+<<<<<<< HEAD
             return (<div>
                 <div className="contenedor_corte_porcentaje">
                     <div className="numero_corte"> corte {idCorte + 1}</div>
                     <div className="porcentaje_corte"> porcentaje: {data[idMateria].cortes[idCorte].porcentaje}</div>
                 </div>
+=======
+            return(<div>
+                <div className="numero_corte"> corte {idCorte + 1}</div>
+                <input type="checkbox" onChange={() => setvalorcheckbox(!valorcheckbox)} ></input>
+                <div className="porcentaje_corte"> {opcionPorcentajeCorte(data[idMateria].cortes[idCorte].porcentaje)} </div>
+>>>>>>> 9e6e62c174411aac74068e3e2a6ec8eb5cf5acc7
                 {data[idMateria].cortes[idCorte].notas.map(e => ( 
                     <div className="contenedor_nota" key={e.id + 1}> 
-                    <div className="numero_nota" key={e.id + 2}>nota {e.id}</div>
-                    <div className="valor_nota" key={e.id + 3}>{e.nota}</div>
-                    <div className="porcentaje_nota" key={e.id + 4}>{e.porcentaje}</div>
+                        <div className="numero_nota" key={e.id + 2}>nota {e.id}</div>
+                        <input type="checkbox"></input>
+                        <div className="valor_nota" key={e.id + 3}>{e.nota}</div>
+                        <div className="porcentaje_nota" key={e.id + 4}>{e.porcentaje} %</div>
                     </div>
                     ))}
             </div>)
