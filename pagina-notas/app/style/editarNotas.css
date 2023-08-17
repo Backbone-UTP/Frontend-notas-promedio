@@ -142,3 +142,35 @@ footer {
     display: flex;
     justify-content: right;
 }
+
+/* _________________________________________________________ */
+
+
+.contenedor_corte_porcentaje {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.porcentaje_corte {
+    grid-column: 2 / 4;
+    padding-left: 60px;
+}
+
+.contenedor_nota {
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr;
+}
+
+.numero_nota {
+    grid-column: 1 / 2;
+}
+
+.valor_nota {
+    grid-column: 2 / 3;
+    text-align: left;
+}
+
+.porcentaje_nota {
+    grid-column: 3 / 4;
+    padding-left: 31px;
+}

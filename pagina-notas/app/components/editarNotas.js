@@ -229,9 +229,11 @@ export default function EditarNotas(){
 
     const contenidoNota = () => {
         if(botonElegido == 3){
-            return(<div>
-                <div className="numero_corte"> corte {idCorte + 1}</div>
-                <div className="porcentaje_corte"> porcentaje: {data[idMateria].cortes[idCorte].porcentaje}</div>
+            return (<div>
+                <div className="contenedor_corte_porcentaje">
+                    <div className="numero_corte"> corte {idCorte + 1}</div>
+                    <div className="porcentaje_corte"> porcentaje: {data[idMateria].cortes[idCorte].porcentaje}</div>
+                </div>
                 {data[idMateria].cortes[idCorte].notas.map(e => ( 
                     <div className="contenedor_nota" key={e.id + 1}> 
                     <div className="numero_nota" key={e.id + 2}>nota {e.id}</div>
