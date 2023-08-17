@@ -84,6 +84,7 @@
     background-color: #fff;
     padding-left: 1vw;
     padding-top: 1vh;
+    margin-bottom: 2vh;
     border-bottom: 1px solid #000;
     border-left: 1px solid #000;
     border-right: 1px solid #000;
@@ -97,10 +98,28 @@
 }
 
 .boton_editar{
+    width: 8vw;
+    height: 5vh;
     margin-right: 1vw;
 }
  .boton_crear {
+    width: 8vw;
+    height: 5vh;
     margin-left: 1vw;
+ }
+
+ .contenedor_botones_inferiores button {
+    box-shadow: 1px 4px #000;
+    transition: all .325s ease;
+    position: relative;
+    border-radius: 50px;
+    font-size: 70%;
+ }
+
+ .contenedor_botones_inferiores button:hover {
+    transform: translateY(2px);
+    box-shadow: 1px 1.5px #000;
+    cursor: pointer;
  }
 
 
