@@ -242,14 +242,15 @@ export default function EditarNotas(){
         if(botonElegido == 3){
             return (<div>
                 <div className="contenedor_corte_porcentaje">
+                    <div>{nombreMateria}</div>
                     <div className="numero_corte"> corte {idCorte + 1}</div>
                     <div className="porcentaje_corte"> porcentaje: {data[idMateria].cortes[idCorte].porcentaje}</div>
-                    <input type="checkbox"></input>
+                    <button>Editar</button>
+                    <button>guardar</button>
                 </div>
                 {data[idMateria].cortes[idCorte].notas.map(e => ( 
                     <div className="contenedor_nota" key={e.id + 1}> 
                         <div className="numero_nota" key={e.id + 2}>nota {e.id}</div>
-                        <input type="checkbox"></input>
                         <div className="valor_nota" key={e.id + 3}>{e.nota}</div>
                         <div className="porcentaje_nota" key={e.id + 4}>{e.porcentaje} %</div>
                     </div>
