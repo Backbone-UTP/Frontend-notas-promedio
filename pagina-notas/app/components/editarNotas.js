@@ -187,15 +187,6 @@ export default function EditarNotas(){
 
     const [valorcheckbox, setvalorcheckbox] = useState(false)
 
-
-    const opcionPorcentajeCorte = (valor) => {
-        if(valorcheckbox == true){
-            return <input type="number" max="100" min="0" placeholder={valor}></input>
-        }else{
-            return <div>porcentaje: {valor} %</div>
-        }
-    }
-
     const contenidoCorte = () => {
         if(botonElegido == 0){
             return(<div>
@@ -240,22 +231,7 @@ export default function EditarNotas(){
 
     const contenidoNota = () => {
         if(botonElegido == 3){
-            return (<div>
-                <div className="contenedor_corte_porcentaje">
-                    <div>{nombreMateria}</div>
-                    <div className="numero_corte"> corte {idCorte + 1}</div>
-                    <div className="porcentaje_corte"> porcentaje: {data[idMateria].cortes[idCorte].porcentaje}</div>
-                    <button>Editar</button>
-                    <button>guardar</button>
-                </div>
-                {data[idMateria].cortes[idCorte].notas.map(e => ( 
-                    <div className="contenedor_nota" key={e.id + 1}> 
-                        <div className="numero_nota" key={e.id + 2}>nota {e.id}</div>
-                        <div className="valor_nota" key={e.id + 3}>{e.nota}</div>
-                        <div className="porcentaje_nota" key={e.id + 4}>{e.porcentaje} %</div>
-                    </div>
-                    ))}
-            </div>)
+            return opcionPorcentajeCorte(valorcheckbox)
         }else{
             return(
             <form>
@@ -274,6 +250,46 @@ export default function EditarNotas(){
                     <input type="button" onClick={() => (nombreCorte != '' && selectedCreditos != '' && selectedObtenido != '') ? (setNombreCorte(''),  setCreditos(''),  setObtenido(''),  setEsperado(''), window.location.href="/ver-notas") : alert("NO VE QUE NO HA LLENADO EL CAMPO AGUEVADO")} className="enviar" value="Crear Materia"></input>
                 </div>
             </form>)
+        }
+    }
+    const opcionPorcentajeCorte = (valor) => {
+        if(valorcheckbox == true){
+            return  <div>
+                        <div className="contenedor_corte_porcentaje">
+                            <input type="text" defaultValue={nombreMateria}></input>
+                            <div>corte {idCorte + 1}</div>
+                            <div>porcentaje: </div>
+                            <input type="number" max="100" min="0" defaultValue={data[idMateria].cortes[idCorte].porcentaje}></input>
+                            <div>%</div>
+                            <button onClick={() => setvalorcheckbox(false)} >Cancelar</button>
+                            <button onClick={() => setvalorcheckbox(false)}>Guardar</button>
+                        </div>
+                        {data[idMateria].cortes[idCorte].notas.map(e => ( 
+                            <div className="contenedor_nota" key={e.id + 1}> 
+                                <div key={e.id + 2}>nota </div>
+                                <input type="text" className="numero_nota" key={e.id + 3} defaultValue={e.id}></input>
+                                <input type="number" max="5" min="0" step="0.1" key={e.id + 4} defaultValue={e.nota}></input>
+                                <input type="number" max="100" min="0" key={e.id + 5} defaultValue={e.porcentaje}></input>
+                                <div key={e.id + 6}>%</div>
+                            </div>
+                            ))}
+                    </div>
+        }else{
+            return  <div>
+                        <div className="contenedor_corte_porcentaje">
+                            <div>{nombreMateria}</div>
+                            <div className="numero_corte"> corte {idCorte + 1}</div>
+                            <div className="porcentaje_corte"> porcentaje: {data[idMateria].cortes[idCorte].porcentaje}</div>
+                            <button onClick={() => setvalorcheckbox(true)} >Editar</button>
+                        </div>
+                        {data[idMateria].cortes[idCorte].notas.map(e => ( 
+                            <div className="contenedor_nota" key={e.id + 1}> 
+                                <div className="numero_nota" key={e.id + 2}>nota {e.id}</div>
+                                <div className="valor_nota" key={e.id + 3}>{e.nota}</div>
+                                <div className="porcentaje_nota" key={e.id + 4}>{e.porcentaje} %</div>
+                            </div>
+                            ))}
+                    </div>
         }
     }
 
