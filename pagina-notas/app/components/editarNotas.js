@@ -257,30 +257,28 @@ export default function EditarNotas(){
         if(valorcheckbox == true){
             return  <div className="contenedor_Cambio_Notas">
                         <div className="contenedor_corte_porcentaje">
-                            <input type="text" defaultValue={nombreMateria}></input>
+                            <div className="contenedor_input_nombre_materia"><input type="text" className="input_nombre_materia" defaultValue={nombreMateria}></input></div>
                             <div className="corte_editar_nota">corte {idCorte + 1}</div>
-                            <div className="texto_porcentaje">porcentaje: </div>
-                            <input className="input_porcentaje_corte" type="number" max="100" min="0" defaultValue={data[idMateria].cortes[idCorte].porcentaje}></input>
-                            <div>%</div>
-                            <button className="boton_cancelar" onClick={() => setvalorcheckbox(false)} >Cancelar</button>
-                            <button className="boton_guardar" onClick={() => setvalorcheckbox(false)}>Guardar</button>
+                            <div className="texto_porcentaje">porcentaje:&nbsp;<input className="input_porcentaje_corte" type="number" max="100" min="0" defaultValue={data[idMateria].cortes[idCorte].porcentaje}></input>%</div>
+                            <div className="guardar_cancelar">
+                                <button className="boton_cancelar" onClick={() => setvalorcheckbox(false)} >Cancelar</button>
+                                <button className="boton_guardar" onClick={() => setvalorcheckbox(false)}>Guardar</button>
+                            </div>
                         </div>
                         {data[idMateria].cortes[idCorte].notas.map(e => ( 
                             <div className="contenedor_nota" key={e.id + 1}> 
-                                <div className="texto_nota" key={e.id + 2}>nota </div>
-                                <input type="text" className="numero_nota" key={e.id + 3} defaultValue={e.id}></input>
+                                <div className="texto_nota" key={e.id + 2}>nota:&nbsp;<input type="text" className="input_numero_nota" key={e.id + 3} defaultValue={e.id}></input></div>
                                 <input  className="input_editar_nota" type="number" max="5" min="0" step="0.1" key={e.id + 4} defaultValue={e.nota}></input>
-                                <input className="input_editar_porcentaje" type="number" max="100" min="0" key={e.id + 5} defaultValue={e.porcentaje}></input>
-                                <div className="porcentaje" key={e.id + 6}>%</div>
+                                <div className="porcentaje" key={e.id + 6}><input className="input_editar_porcentaje" type="number" max="100" min="0" key={e.id + 5} defaultValue={e.porcentaje}></input>%</div>
                             </div>
                             ))}
                     </div>
         }else{
             return  <div className="contenedor_Cambio_Notas">
                         <div className="contenedor_corte_porcentaje">
-                            <div>{nombreMateria}</div>
+                            <div className="nombre_materia">{nombreMateria}</div>
                             <div className="numero_corte"> corte {idCorte + 1}</div>
-                            <div className="porcentaje_corte"> porcentaje: {data[idMateria].cortes[idCorte].porcentaje}</div>
+                            <div className="porcentaje_corte"> porcentaje: {data[idMateria].cortes[idCorte].porcentaje}%</div>
                             <button className="boton_editar" onClick={() => setvalorcheckbox(true)} >Editar</button>
                         </div>
                         {data[idMateria].cortes[idCorte].notas.map(e => ( 
