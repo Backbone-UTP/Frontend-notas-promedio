@@ -213,15 +213,15 @@ export default function EditarNotas(){
                 </div>
                 <div>
                     <div>Porcentaje</div>
-                    <input required type="number" max="100" min="0" className="number" value={selectedCreditos} onChange={e => (parseInt(e.target.value) > 0 && parseInt(e.target.value) <= 100) ? setCreditos(e.target.value): setCreditos('')}></input>
+                    <input required type="number" max="100" min="0" className="number" value={selectedCreditos} onChange={e => (parseFloat(e.target.value) > 0 && parseFloat(e.target.value) <= 100 && (parseFloat(e.target.value) - parseInt(e.target.value))== 0) ? setCreditos(e.target.value): setCreditos('')}></input>
                 </div>
                 <div>
                     <div>Obtenido</div>
-                    <input required type="number" max="5" min="0" className="number" value={selectedObtenido} onChange={e => (parseInt(e.target.value) >= 0 && parseInt(e.target.value) <= 5) ? setObtenido(e.target.value): setObtenido('')}></input>
+                    <input required type="number" max="5" min="0" className="number" value={selectedObtenido} onChange={e => (parseFloat(e.target.value) >= 0 && parseFloat(e.target.value) <= 5) ? setObtenido(e.target.value): setObtenido('')}></input>
                             </div>
                 <div>
                     <div>Esperado</div>
-                    <input required type="number" max="5" min="0" className="number" value={selectedEsperado} onChange={e => (parseInt(e.target.value) >= 0 && parseInt(e.target.value) <= 5) ? setEsperado(e.target.value): setEsperado('')}></input>
+                    <input required type="number" max="5" min="0" className="number" value={selectedEsperado} onChange={e => (parseFloat(e.target.value) >= 0 && parseFloat(e.target.value) <= 5) ? setEsperado(e.target.value): setEsperado('')}></input>
 
                     <input type="button" onClick={() => (nombreCorte != '' && selectedCreditos != '' && selectedObtenido != '' && selectedEsperado != '') ? (setSelectedTab(selectedTab + 1), setNombreCorte(''),  setCreditos(''),  setObtenido(''),  setEsperado('')) : alert("NO VE QUE NO HA LLENADO EL CAMPO AGUEVADO")} className="enviar" value="Crear Nota"></input>
                 </div>
@@ -241,11 +241,11 @@ export default function EditarNotas(){
                 </div>
                 <div>
                     <div>Porcentaje</div>
-                    <input required type="number" max="100" min="0" className="number" value={selectedCreditos} onChange={e => (parseInt(e.target.value) > 0 && parseInt(e.target.value) <= 100) ? setCreditos(e.target.value): setCreditos('')}></input>
+                    <input required type="number" max="100" min="0" className="number" value={selectedCreditos} onChange={e => (parseFloat(e.target.value) > 0 && parseFloat(e.target.value) <= 100 && (parseFloat(e.target.value) - parseInt(e.target.value))== 0) ? setCreditos(e.target.value): setCreditos('')}></input>
                 </div>
                 <div>
                     <div>Obtenido</div>
-                    <input required type="number" max="5" min="0" className="number" value={selectedObtenido}  onChange={e => (parseInt(e.target.value) >= 0 && parseInt(e.target.value) <= 5) ? setObtenido(e.target.value): setObtenido('')}></input>
+                    <input required type="number" max="5" min="0" className="number" value={selectedObtenido}  onChange={e => (parseFloat(e.target.value) >= 0 && parseFloat(e.target.value) <= 5) ? setObtenido(e.target.value): setObtenido('')}></input>
 
                     <input type="button" onClick={() => (nombreCorte != '' && selectedCreditos != '' && selectedObtenido != '') ? (setNombreCorte(''),  setCreditos(''),  setObtenido(''),  setEsperado(''), window.location.href="/ver-notas") : alert("NO VE QUE NO HA LLENADO EL CAMPO AGUEVADO")} className="enviar" value="Crear Materia"></input>
                 </div>
