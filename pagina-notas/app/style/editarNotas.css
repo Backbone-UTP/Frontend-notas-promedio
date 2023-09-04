@@ -49,7 +49,7 @@
     display: flex;
     flex-direction: column;
     justify-content: left;
-    align-items: flex-start;
+    align-items: center;
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -183,6 +183,8 @@ footer {
     position: relative;
     width: 100%;
     flex-direction: column;
+    justify-self: flex-start;
+    align-self: flex-start;
     margin-left: 5vw;
 }
 
