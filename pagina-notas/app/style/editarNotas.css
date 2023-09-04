@@ -44,10 +44,12 @@
 
 .contenedor_botones {
     background-color: #D3D3D3;
-    height: 90%;    
+    height: 90%;   
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: left;
+    align-items: flex-start;
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -98,10 +100,21 @@
 }
 
 .boton_editar{
+    border-radius: 50px;
     width: 8vw;
-    height: 5vh;
+    height: 4vh;
     margin-right: 1vw;
+    box-shadow: 1px 4px #000;
+    transition: all .325s ease;
+    position: relative;
 }
+
+.boton_editar:hover{
+    transform: translateY(2px);
+    box-shadow: 1px 1.5px #000;
+    cursor: pointer;
+}
+
  .boton_crear {
     width: 8vw;
     height: 5vh;
@@ -164,15 +177,106 @@ footer {
 
 /* _________________________________________________________ */
 
+
+.contenedor_Cambio_Notas {
+    display: flex;
+    position: relative;
+    width: 100%;
+    flex-direction: column;
+    margin-left: 5vw;
+}
+
 .contenedor_corte_porcentaje{
+    width: 50vw;
+    height: 8vh;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
-    justify-content: space-between;
+}
+
+.contenedor_corte_porcentaje .nombre_materia{
+    display: flex;
+    justify-content: left;
+    height: 8vh;
+}
+
+.contenedor_corte_porcentaje div{
+    display: flex;
+    justify-content: left;
+    width: 20vw;
 }
 
 .contenedor_nota {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    height: 3vh;
+    margin-top: 2vh;
+    width: 34vw;
 }
+
+.contenedor_nota div{
+    display: flex;
+    justify-content: center;
+}
+
+.numero_corte{
+    padding-left: 2.4vw;
+}
+
+.porcentaje_corte {
+    margin-right: 3vw;
+}
+
+/* _____________ Inputs edit period ___________________*/
+
+.contenedor_Cambio_Notas input {
+    height: 3vh;
+    border-radius: 10px 10px 10px 10px;
+    border: 1.5px solid #000;
+    box-shadow: 1px 1.5px #000;
+    padding-left: 0.5vw;
+    background-color: #fff;
+}
+
+.guardar_cancelar{
+    display: flex;
+    flex-direction: row;
+    margin-top: 3.1vh;
+    margin-bottom: 3.1vh;
+    margin-left: 2vw;
+}
+
+.guardar_cancelar button{
+    height: 3vh;
+    width: 4vw;
+    border-radius: 50px;
+    margin-right: 1vw;
+    box-shadow: 1px 4px #000;
+    transition: all .325s ease;
+    position: relative;
+}
+
+.guardar_cancelar button:hover {
+    transform: translateY(2px);
+    box-shadow: 1px 1.5px #000;
+    cursor: pointer;
+}
+
+.input_nombre_materia {
+    width: 10vw;
+}
+
+.texto_nota input {
+    width: 2.5vw;
+}
+
+.corte_editar_nota {
+    margin-left: 5.2vw;
+}
+
+.input_porcentaje_corte {
+    width: 2.5vw;
+}
+
