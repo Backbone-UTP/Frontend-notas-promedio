@@ -49,7 +49,7 @@ export default function EditarNotas(){
                 </div>
                 <div>
                     <div>Porcentaje</div>
-                    <input required type="number" max="100" min="0" className="number" value={percentageCut} onChange={e => (parseFloat(e.target.value) > 0 && parseFloat(e.target.value) <= 100 && (parseFloat(e.target.value) - parseInt(e.target.value))== 0) ? setPercentageCut(e.target.value): setPercentageCut('')}></input>
+                    <input required type="number" max="100" min="0" className="number" value={percentageCut} onChange={e => (parseFloat(e.target.value) > 0 && parseFloat(e.target.value) <= 100 && (parseFloat(e.target.value) - parseInt(e.target.value)) == 0) ? setPercentageCut(e.target.value): setPercentageCut('')}></input>
                 </div>
                 <div>
                     <div>Obtenido</div>
@@ -59,7 +59,7 @@ export default function EditarNotas(){
                     <div>Esperado</div>
                     <input required type="number" max="5" min="0" className="number" value={expectedCut} onChange={e => (parseFloat(e.target.value) >= 0 && parseFloat(e.target.value) <= 5) ? setExpectedCut(e.target.value): setExpectedCut('')}></input>
 
-                    <input type="button" onClick={() => (nameCut != '' && percentageCut != '' && obtainedCut != '' && expectedCut != '') ? setSelectedTab(selectedTab + 1) : alert("NO VE QUE NO HA LLENADO EL CAMPO AGUEVADO")} className="enviar" value="Crear Nota"></input>
+                    <input type="button" onClick={() => (nameCut != '' && percentageCut != '' && obtainedCut != '' && expectedCut != '') ? (((data[idMateria].cortes.reduce((collector, porcentajeactual) => parseFloat(collector) + parseFloat(porcentajeactual.porcentaje), 0) + parseFloat(percentageCut)) <= 100) ? setSelectedTab(selectedTab + 1) : alert("La suma de los porcentajes de los cortes de la materia " + data[idMateria].materia + " es mayor a 100")) : alert("NO VE QUE NO HA LLENADO EL CAMPO AGUEVADO")} className="enviar" value="Crear Nota"></input>
                 </div>
             </form>)
         }
@@ -83,7 +83,7 @@ export default function EditarNotas(){
                     <div>Obtenido</div>
                     <input required type="number" max="5" min="0" className="number" value={obtainedGrade}  onChange={e => (parseFloat(e.target.value) >= 0 && parseFloat(e.target.value) <= 5) ? setObtainedGrade(e.target.value): setObtainedGrade('')}></input>
 
-                    <input type="button" onClick={() => (nameGrade != '' && percentageGrade != '' && obtainedGrade != '') ? (chooseToAdd(), window.location.href="/ver-notas")  : alert("NO VE QUE NO HA LLENADO EL CAMPO AGUEVADO")} className="enviar" value="Crear Materia"></input>
+                    <input type="button" onClick={() => (nameGrade != '' && percentageGrade != '' && obtainedGrade != '') ? chooseToAdd()  : alert("NO VE QUE NO HA LLENADO EL CAMPO AGUEVADO")} className="enviar" value="Crear Materia"></input>
                 </div>
             </form>)
         }
@@ -133,6 +133,7 @@ export default function EditarNotas(){
             addNoteToObject()
         }else{
             addToObject()
+            window.location.href="/ver-notas"
         }
     }
 
