@@ -2,6 +2,8 @@
 import { useState } from "react"
 import { data } from "./varibaleDatos"
 import "../style/crearMateria.css"
+import { useContext } from "react"
+import { contextData } from "../context/contextData"
 
 export default function CrearMateria(){
     const [selectedTab, setSelectedTab] = useState(0)
@@ -19,36 +21,38 @@ export default function CrearMateria(){
     const[nameGrade,setNameGrade] = useState('')
     const[percentageGrade,setPercentageGrade] = useState('')
     const[obtainedGrade,setObtainedGrade] = useState('')
-
+     
+    const {data1, cambioData1} = useContext(contextData)
 
     const addToObject = () => {
         let idLastSubject = data[Object.keys(data).length - 1].id
+        const dataCambio = data1
+        const materia = {
+            materia: nameSubject, 
+            id: idLastSubject + 1,
+            obtenido: obtainedSubject,
+            esperado: expectedSubject,
+            cortes: [
+                {
+                    corte: nameCut,
+                    id: "1",
+                    porcentaje: percentageCut,
+                    obtenido: obtainedCut,
+                    esperado: expectedCut,
+                    notas: [
+                        {
+                            name: nameGrade,
+                            id: "1",
+                            porcentaje: percentageGrade,
+                            nota: obtainedGrade,
+                        },  
+                    ], 
+                }
+            ]
+        }
+        dataCambio.push(materia)
 
-        data.push(
-            {
-                materia: nameSubject, 
-                id: idLastSubject + 1,
-                obtenido: obtainedSubject,
-                esperado: expectedSubject,
-                cortes: [
-                    {
-                        corte: nameCut,
-                        id: "1",
-                        porcentaje: percentageCut,
-                        obtenido: obtainedCut,
-                        esperado: expectedCut,
-                        notas: [
-                            {
-                                name: nameGrade,
-                                id: "1",
-                                porcentaje: percentageGrade,
-                                nota: obtainedGrade,
-                            },  
-                        ], 
-                    }
-                ]
-            }
-        )
+        cambioData1(dataCambio)
     }
 
     return(
@@ -111,10 +115,11 @@ export default function CrearMateria(){
                     <div>
                         <div>Obtenido</div>
                         <input required type="number" max="5" min="0" className="number" value={obtainedGrade}  onChange={e => (parseFloat(e.target.value) >= 0 && parseFloat(e.target.value) <= 5) ? setObtainedGrade(e.target.value): setObtainedGrade('')}></input>
-                        <input type="button" onClick={() => (nameGrade != '' && percentageGrade != '' && obtainedGrade != '') ? (addToObject(), window.location.href="/ver-notas") : alert("Campos vacios")} className="enviar" value="Crear Materia"></input>
+                        <input type="button" onClick={() => (nameGrade != '' && percentageGrade != '' && obtainedGrade != '') ?  addToObject() : alert("Campos vacios")} className="enviar" value="Crear Materia"></input>
                     </div>
                 </form>
             </div>
         </div>
     )
 }
+//(addToObject(), window.location.href="/ver-notas")
