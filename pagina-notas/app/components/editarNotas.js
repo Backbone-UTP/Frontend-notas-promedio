@@ -43,23 +43,28 @@ export default function EditarNotas(){
         }else if(botonElegido == 1){
             return(
             <form>
-                <div>
-                    <div>Nombre Corte</div>
-                    <input required type="text" onChange={e => setNameCut(e.target.value)}></input>
-                </div>
-                <div>
-                    <div>Porcentaje</div>
-                    <input required type="number" max="100" min="0" className="number" value={percentageCut} onChange={e => (parseFloat(e.target.value) > 0 && parseFloat(e.target.value) <= 100 && (parseFloat(e.target.value) - parseInt(e.target.value)) == 0) ? setPercentageCut(e.target.value): setPercentageCut('')}></input>
-                </div>
-                <div>
-                    <div>Obtenido</div>
-                    <input required type="number" max="5" min="0" className="number" value={obtainedCut} onChange={e => (parseFloat(e.target.value) >= 0 && parseFloat(e.target.value) <= 5) ? setObtainedCut(e.target.value): setObtainedCut('')}></input>
-                            </div>
-                <div>
-                    <div>Esperado</div>
-                    <input required type="number" max="5" min="0" className="number" value={expectedCut} onChange={e => (parseFloat(e.target.value) >= 0 && parseFloat(e.target.value) <= 5) ? setExpectedCut(e.target.value): setExpectedCut('')}></input>
-
-                    <input type="button" onClick={() => (nameCut != '' && percentageCut != '' && obtainedCut != '' && expectedCut != '') ? (((data[idMateria].cortes.reduce((collector, porcentajeactual) => parseFloat(collector) + parseFloat(porcentajeactual.porcentaje), 0) + parseFloat(percentageCut)) <= 100) ? setSelectedTab(selectedTab + 1) : alert("La suma de los porcentajes de los cortes de la materia " + data[idMateria].materia + " es mayor a 100")) : alert("NO VE QUE NO HA LLENADO EL CAMPO AGUEVADO")} className="enviar" value="Crear Nota"></input>
+                <div className="contenedor_Cambio_Notas">
+                    <div className="contenedor_nuevo_corte">
+                        <div className="nombre_corte">
+                            <div>Nombre Corte</div>
+                            <input required type="text" onChange={e => setNameCut(e.target.value)}></input>
+                        </div>
+                        <div className="porcentaje_corte">
+                            <div>Porcentaje</div>
+                            <input required type="number" max="100" min="0" className="number" value={percentageCut} onChange={e => (parseFloat(e.target.value) > 0 && parseFloat(e.target.value) <= 100 && (parseFloat(e.target.value) - parseInt(e.target.value)) == 0) ? setPercentageCut(e.target.value): setPercentageCut('')}></input>
+                        </div>
+                        <div className="obtenido_corte">
+                            <div>Obtenido</div>
+                            <input required type="number" max="5" min="0" className="number" value={obtainedCut} onChange={e => (parseFloat(e.target.value) >= 0 && parseFloat(e.target.value) <= 5) ? setObtainedCut(e.target.value): setObtainedCut('')}></input>
+                                    </div>
+                        <div className="esperado_corte">
+                            <div>Esperado</div>
+                            <input required type="number" max="5" min="0" className="number" value={expectedCut} onChange={e => (parseFloat(e.target.value) >= 0 && parseFloat(e.target.value) <= 5) ? setExpectedCut(e.target.value): setExpectedCut('')}></input>
+                        </div>
+                    </div>
+                    <div className="contenedor_boton_editar">
+                        <button type="button" onClick={() => (nameCut != '' && percentageCut != '' && obtainedCut != '' && expectedCut != '') ? (((data[idMateria].cortes.reduce((collector, porcentajeactual) => parseFloat(collector) + parseFloat(porcentajeactual.porcentaje), 0) + parseFloat(percentageCut)) <= 100) ? setSelectedTab(selectedTab + 1) : alert("La suma de los porcentajes de los cortes de la materia " + data[idMateria].materia + " es mayor a 100")) : alert("NO VE QUE NO HA LLENADO EL CAMPO AGUEVADO")} className="boton_editar" value="Crear Nota">Crear Corte</button>
+                    </div>
                 </div>
             </form>)
         }
@@ -71,19 +76,24 @@ export default function EditarNotas(){
         }else{
             return(
             <form>
-                <div>
-                    <div>Nombre Nota</div>
-                    <input required type="text"  onChange={e => setNameGrade(e.target.value)}></input>
-                </div>
-                <div>
-                    <div>Porcentaje</div>
-                    <input required type="number" max="100" min="0" className="number" value={percentageGrade} onChange={e => (parseFloat(e.target.value) > 0 && parseFloat(e.target.value) <= 100 && (parseFloat(e.target.value) - parseInt(e.target.value))== 0) ? setPercentageGrade(e.target.value): setPercentageGrade('')}></input>
-                </div>
-                <div>
-                    <div>Obtenido</div>
-                    <input required type="number" max="5" min="0" className="number" value={obtainedGrade}  onChange={e => (parseFloat(e.target.value) >= 0 && parseFloat(e.target.value) <= 5) ? setObtainedGrade(e.target.value): setObtainedGrade('')}></input>
-
-                    <input type="button" onClick={() => (nameGrade != '' && percentageGrade != '' && obtainedGrade != '') ? chooseToAdd()  : alert("NO VE QUE NO HA LLENADO EL CAMPO AGUEVADO")} className="enviar" value="Crear Materia"></input>
+                <div className="contenedor_Cambio_Notas">
+                    <div className="contenedor_nuevo_corte">
+                        <div className="nombre_nota">
+                            <div>Nombre Nota</div>
+                                <input required type="text"  onChange={e => setNameGrade(e.target.value)}></input>
+                        </div>
+                        <div className="porcentaje_nota">
+                            <div>Porcentaje</div>
+                            <input required type="number" max="100" min="0" className="number" value={percentageGrade} onChange={e => (parseFloat(e.target.value) > 0 && parseFloat(e.target.value) <= 100 && (parseFloat(e.target.value) - parseInt(e.target.value))== 0) ? setPercentageGrade(e.target.value): setPercentageGrade('')}></input>
+                        </div>
+                        <div className="obtenido_nota"> 
+                            <div>Obtenido</div>
+                            <input required type="number" max="5" min="0" className="number" value={obtainedGrade}  onChange={e => (parseFloat(e.target.value) >= 0 && parseFloat(e.target.value) <= 5) ? setObtainedGrade(e.target.value): setObtainedGrade('')}></input>
+                        </div>
+                    </div>
+                    <div className="contenedor_boton_editar">
+                        <button type="button" onClick={() => (nameGrade != '' && percentageGrade != '' && obtainedGrade != '') ? chooseToAdd()  : alert("NO VE QUE NO HA LLENADO EL CAMPO AGUEVADO")} className="boton_editar" value="Crear Materia">Crear Materia</button>
+                    </div>
                 </div>
             </form>)
         }

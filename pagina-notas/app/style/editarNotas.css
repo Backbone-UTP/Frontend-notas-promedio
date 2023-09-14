@@ -115,6 +115,12 @@
     cursor: pointer;
 }
 
+.contenedor_boton_editar {
+    display: flex;
+    margin-top: 3vh;
+    align-self: flex-start;
+}
+
  .boton_crear {
     width: 8vw;
     height: 5vh;
@@ -240,6 +246,14 @@ footer {
     box-shadow: 1px 1.5px #000;
     padding-left: 0.5vw;
     background-color: #fff;
+}
+
+.contenedor_nuevo_corte input{
+    position: relative;
+}
+
+.contenedor_nuevo_corte div{
+    margin-top: 2vh;
 }
 
 .guardar_cancelar{
