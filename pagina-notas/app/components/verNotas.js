@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import "../style/verNotas.css"
 import { useContext } from "react";
 import { contextData } from "../context/contextData"
@@ -7,13 +7,20 @@ import { contextData } from "../context/contextData"
 export default function VerNotas(){
     const [selectedTab, setSelectedTab] = useState(1);
 
-    const {data1} = useContext(contextData)
+    const {data1, cambioData1} = useContext(contextData)
     
     const verificacion = (id) => {
         if(id != selectedTab){
             setSelectedTab(id);
         }
     }
+
+    useEffect(() => {
+        let datas = localStorage.getItem("data")
+        if(datas != null) cambioData1(JSON.parse(datas))
+    }, [] )
+
+    
 
     return(
         <div className="contenedor_universal">
