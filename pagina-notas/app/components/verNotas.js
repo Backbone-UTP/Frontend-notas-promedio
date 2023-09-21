@@ -1,10 +1,13 @@
 "use client"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import "../style/verNotas.css"
-import { data } from "./varibaleDatos";
+import { useContext } from "react";
+import { contextData } from "../context/contextData"
 
 export default function VerNotas(){
     const [selectedTab, setSelectedTab] = useState(1);
+
+    const {data1, cambioData1} = useContext(contextData)
     
     const verificacion = (id) => {
         if(id != selectedTab){
@@ -12,9 +15,16 @@ export default function VerNotas(){
         }
     }
 
+    useEffect(() => {
+        let datas = localStorage.getItem("data")
+        if(datas != null) cambioData1(JSON.parse(datas))
+    }, [] )
+
+    
+
     return(
         <div className="contenedor_universal">
-            {data.map(e => (
+            {data1.map(e => (
                 <div key={e.id + 1}  className={selectedTab == e.id ? 'contenedor_cuadros': 'contenedor_cuadros reducir_cuadro'}>
                 <div key={e.id + 2}  className={selectedTab == e.id ? 'titulo_campo': 'titulo_campo aumentar_titulo'} onClick={() => verificacion(e.id)}>{e.materia}</div>
                 <div key={e.id + 3}  className={selectedTab == e.id ? 'contenedor_botones': 'contenedor_botones ocultar_botones'} >
