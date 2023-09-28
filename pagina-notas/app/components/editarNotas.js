@@ -1,7 +1,8 @@
 "use client"
-import { useState } from "react"
+import { useState, useEffect, useContext } from "react"
 import "../style/editarNotas.css"
 import { data } from "./varibaleDatos";
+import { contextData } from "../context/contextData"
 
 export default function EditarNotas(){
 
@@ -22,6 +23,13 @@ export default function EditarNotas(){
 
     const [valorcheckbox, setvalorcheckbox] = useState(false)
 
+    var {data1, cambioData1} = useContext(contextData)
+
+    useEffect(() => {
+        let datas = localStorage.getItem("data")
+        if(datas != null) cambioData1(JSON.parse(datas))
+    }, [] )
+
     const contenidoCorte = () => {
         if(botonElegido == 0){
             return(<div>
@@ -30,7 +38,7 @@ export default function EditarNotas(){
                 <input disabled placeholder="selecciona el corte" className="filtrar_materia" value={"corte " + (idCorte + 1) } />
                     
                 <div className="contenedor_materias">
-                    {data[idMateria].cortes.map(e => ( 
+                    {data1[idMateria].cortes.map(e => ( 
                     <div key={e.id} onClick={() => setIdCorte(e.id - 1)}> corte {e.id} </div>
                     ))}
                 </div>
@@ -63,7 +71,7 @@ export default function EditarNotas(){
                         </div>
                     </div>
                     <div className="contenedor_boton_editar">
-                        <button type="button" onClick={() => (nameCut != '' && percentageCut != '' && obtainedCut != '' && expectedCut != '') ? (((data[idMateria].cortes.reduce((collector, porcentajeactual) => parseFloat(collector) + parseFloat(porcentajeactual.porcentaje), 0) + parseFloat(percentageCut)) <= 100) ? setSelectedTab(selectedTab + 1) : alert("La suma de los porcentajes de los cortes de la materia " + data[idMateria].materia + " es mayor a 100")) : alert("NO VE QUE NO HA LLENADO EL CAMPO AGUEVADO")} className="boton_editar" value="Crear Nota">Crear Corte</button>
+                        <button type="button" onClick={() => (nameCut != '' && percentageCut != '' && obtainedCut != '' && expectedCut != '') ? (((data1[idMateria].cortes.reduce((collector, porcentajeactual) => parseFloat(collector) + parseFloat(porcentajeactual.porcentaje), 0) + parseFloat(percentageCut)) <= 100) ? setSelectedTab(selectedTab + 1) : alert("La suma de los porcentajes de los cortes de la materia " + data1[idMateria].materia + " es mayor a 100")) : alert("campos vacíos")} className="boton_editar" value="Crear Nota">Crear Corte</button>
                     </div>
                 </div>
             </form>)
@@ -92,7 +100,7 @@ export default function EditarNotas(){
                         </div>
                     </div>
                     <div className="contenedor_boton_editar">
-                        <button type="button" onClick={() => (nameGrade != '' && percentageGrade != '' && obtainedGrade != '') ? chooseToAdd()  : alert("NO VE QUE NO HA LLENADO EL CAMPO AGUEVADO")} className="boton_editar" value="Crear Materia">Crear Materia</button>
+                        <button type="button" onClick={() => (nameGrade != '' && percentageGrade != '' && obtainedGrade != '') ? (chooseToAdd()) : alert("campos vacíos")} className="boton_editar" value="Crear Materia">Crear Materia</button>
                     </div>
                 </div>
             </form>)
@@ -105,13 +113,13 @@ export default function EditarNotas(){
                         <div className="contenedor_corte_porcentaje">
                             <div className="contenedor_input_nombre_materia"><input type="text" className="input_nombre_materia" defaultValue={nombreMateria}></input></div>
                             <div className="corte_editar_nota">corte {idCorte + 1}</div>
-                            <div className="texto_porcentaje">porcentaje:&nbsp;<input className="input_porcentaje_corte" type="number" max="100" min="0" defaultValue={data[idMateria].cortes[idCorte].porcentaje}></input>%</div>
+                            <div className="texto_porcentaje">porcentaje:&nbsp;<input className="input_porcentaje_corte" type="number" max="100" min="0" defaultValue={data1[idMateria].cortes[idCorte].porcentaje}></input>%</div>
                             <div className="guardar_cancelar">
                                 <button className="boton_cancelar" onClick={() => setvalorcheckbox(false)} >Cancelar</button>
                                 <button className="boton_guardar" onClick={() => setvalorcheckbox(false)}>Guardar</button>
                             </div>
                         </div>
-                        {data[idMateria].cortes[idCorte].notas.map(e => ( 
+                        {data1[idMateria].cortes[idCorte].notas.map(e => ( 
                             <div className="contenedor_nota" key={e.id + 1}> 
                                 <div className="texto_nota" key={e.id + 2}>nota:&nbsp;<input type="text" className="input_numero_nota" key={e.id + 3} defaultValue={e.id}></input></div>
                                 <input  className="input_editar_nota" type="number" max="5" min="0" step="0.1" key={e.id + 4} defaultValue={e.nota}></input>
@@ -124,10 +132,10 @@ export default function EditarNotas(){
                         <div className="contenedor_corte_porcentaje">
                             <div className="nombre_materia">{nombreMateria}</div>
                             <div className="numero_corte"> corte {idCorte + 1}</div>
-                            <div className="porcentaje_corte"> porcentaje: {data[idMateria].cortes[idCorte].porcentaje}%</div>
+                            <div className="porcentaje_corte"> porcentaje: {data1[idMateria].cortes[idCorte].porcentaje}%</div>
                             <button className="boton_editar" onClick={() => setvalorcheckbox(true)} >Editar</button>
                         </div>
-                        {data[idMateria].cortes[idCorte].notas.map(e => ( 
+                        {data1[idMateria].cortes[idCorte].notas.map(e => ( 
                             <div className="contenedor_nota" key={e.id + 1}> 
                                 <div className="numero_nota" key={e.id + 2}>nota {e.id}</div>
                                 <div className="valor_nota" key={e.id + 3}>{e.nota}</div>
@@ -140,7 +148,8 @@ export default function EditarNotas(){
 
     const chooseToAdd = () => {
         if(botonElegido == 4){
-            addNoteToObject()
+            // addNoteToObject()
+            console.log("hola")
         }else{
             addToObject()
             window.location.href="/ver-notas"
@@ -148,40 +157,36 @@ export default function EditarNotas(){
     }
 
     const addToObject = () => {
-        let idLastCut = data[idMateria].cortes.length + 1
+        let idLastSubject = data1[Object.keys(data1).length - 1].id
+        console.log(idLastSubject)
+        const dataCambio = data1
+        const materia = {
+            materia: nameSubject, 
+            id: idLastSubject + 1,
+            obtenido: obtainedSubject,
+            esperado: expectedSubject,
+            cortes: [
+                {
+                    corte: nameCut,
+                    id: "1",
+                    porcentaje: percentageCut,
+                    obtenido: obtainedCut,
+                    esperado: expectedCut,
+                    notas: [
+                        {
+                            name: nameGrade,
+                            id: "1",
+                            porcentaje: percentageGrade,
+                            nota: obtainedGrade,
+                        },  
+                    ], 
+                }
+            ]
+        }
+        dataCambio.push(materia)
 
-        data[idMateria].cortes.push(
-            {
-                corte: nameCut,
-                id: idLastCut.toString(),
-                porcentaje: percentageCut,
-                obtenido: obtainedCut,
-                esperado: expectedCut,
-                notas: [
-                    {
-                        name: nameGrade,
-                        id: "1",
-                        porcentaje: percentageGrade,
-                        nota: obtainedGrade,
-                    },  
-                ], 
-            }
-        )
-        console.log(data)
-    }
-
-    const addNoteToObject = () => {
-        let idLastNote = data[idMateria].cortes[idCorte].notas.length + 1
-
-        data[idMateria].cortes[idCorte].notas.push(
-            {
-                name: nameGrade,
-                id: idLastNote.toString(),
-                porcentaje: percentageGrade,
-                nota: obtainedGrade,
-            }
-        )
-        console.log(data)
+        cambioData1(dataCambio)
+        localStorage.setItem("data", JSON.stringify(data1));
     }
 
     return(
@@ -195,7 +200,7 @@ export default function EditarNotas(){
                     <input disabled placeholder="selecciona la materia" className="filtrar_materia" value={nombreMateria}/>
                         
                     <div className="contenedor_materias">
-                        {data.map(e => ( 
+                        {data1.map(e => ( 
                         <div key={e.id} onClick={() => (setIdMateria(e.id - 1), setNombreMateria(e.materia))}> {e.materia} </div>
                         ))}
                     </div>

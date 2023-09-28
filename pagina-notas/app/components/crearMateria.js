@@ -1,6 +1,5 @@
 "use client"
 import { useState, useEffect } from "react"
-import { data } from "./varibaleDatos"
 import "../style/crearMateria.css"
 import { useContext } from "react"
 import { contextData } from "../context/contextData"
