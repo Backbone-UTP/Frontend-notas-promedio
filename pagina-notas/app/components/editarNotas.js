@@ -71,12 +71,13 @@ export default function EditarNotas(){
                         </div>
                     </div>
                     <div className="contenedor_boton_editar">
-                        <button type="button" onClick={() => (nameCut != '' && percentageCut != '' && obtainedCut != '' && expectedCut != '') ? (((data1[idMateria].cortes.reduce((collector, porcentajeactual) => parseFloat(collector) + parseFloat(porcentajeactual.porcentaje), 0) + parseFloat(percentageCut)) <= 100) ? setSelectedTab(selectedTab + 1) : alert("La suma de los porcentajes de los cortes de la materia " + data1[idMateria].materia + " es mayor a 100")) : alert("campos vacíos")} className="boton_editar" value="Crear Nota">Crear Corte</button>
+                        <button type="button" onClick={() => (nameCut != '' && percentageCut != '' && obtainedCut != '' && expectedCut != '') ? (((data1[idMateria].cortes.reduce((collector, porcentajeactual) => parseFloat(collector) + parseFloat(porcentajeactual.porcentaje), 0) + parseFloat(percentageCut)) <= 100) ? setSelectedTab(selectedTab + 1) : alert("La suma de los porcentajes de los cortes de la materia " + data1[idMateria].materia + " es mayor a 100")) : alert("campos vacíos")} className="boton_editar" value="Crear Nota">Crear Nota</button>
                     </div>
                 </div>
             </form>)
         }
     }
+
 
     const contenidoNota = () => {
         if(botonElegido == 3){
@@ -100,7 +101,7 @@ export default function EditarNotas(){
                         </div>
                     </div>
                     <div className="contenedor_boton_editar">
-                        <button type="button" onClick={() => (nameGrade != '' && percentageGrade != '' && obtainedGrade != '') ? (chooseToAdd()) : alert("campos vacíos")} className="boton_editar" value="Crear Materia">Crear Materia</button>
+                        <button type="button" onClick={() => (nameGrade != '' && percentageGrade != '' && obtainedGrade != '') ? (((data1[idMateria].cortes[idCorte === -1 ? data1[idMateria].cortes.length - 1 : idCorte].notas.reduce((collector, porcentajeactual) => parseFloat(collector) + parseFloat(porcentajeactual.porcentaje), 0) + parseFloat(percentageGrade)) <= 100) ? console.log("creado") /* chooseToAdd() */: alert("La suma de los porcentajes de las notas es mayor a 100")) : alert("campos vacíos")} className="boton_editar" value="Crear Materia">Crear Materia</button>
                     </div>
                 </div>
             </form>)
