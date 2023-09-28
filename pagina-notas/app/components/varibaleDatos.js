@@ -8,12 +8,27 @@ export var data = [
             {
                 corte: "ecuaciones",
                 id: "1",
-                porcentaje: "30",
+                porcentaje: "20",
                 obtenido: "4.1",
                 esperado: "5.0",
                 notas: [
                     {
                         name: "actividad despejes",
+                        id: "1",
+                        porcentaje: "30",
+                        nota: "2.0",
+                    },  
+                ], 
+            },
+            {
+                corte: "no se sumar eso",
+                id: "2",
+                porcentaje: "25",
+                obtenido: "4.1",
+                esperado: "5.0",
+                notas: [
+                    {
+                        name: "sumas",
                         id: "1",
                         porcentaje: "30",
                         nota: "2.0",
