@@ -30,6 +30,18 @@ export default function EditarNotas(){
         if(datas != null) cambioData1(JSON.parse(datas))
     }, [] )
 
+    const verificationPercentajeCut= () => {
+        if(nameCut != '' && percentageCut != '' && obtainedCut != '' && expectedCut != ''){
+            if(data1[idMateria].cortes.reduce((collector, porcentajeactual) => parseFloat(collector) + parseFloat(porcentajeactual.porcentaje), 0) + parseFloat(percentageCut) <= 100){
+                setSelectedTab(selectedTab + 1)
+            }else{
+                alert("La suma de los porcentajes de los cortes de la materia " + data1[idMateria].materia + " es mayor a 100");
+            }
+        }else{
+            alert("campos vacíos");
+        }
+    }
+
     const contenidoCorte = () => {
         if(botonElegido == 0){
             return(<div>
@@ -71,10 +83,22 @@ export default function EditarNotas(){
                         </div>
                     </div>
                     <div className="contenedor_boton_editar">
-                        <button type="button" onClick={() => (nameCut != '' && percentageCut != '' && obtainedCut != '' && expectedCut != '') ? (((data1[idMateria].cortes.reduce((collector, porcentajeactual) => parseFloat(collector) + parseFloat(porcentajeactual.porcentaje), 0) + parseFloat(percentageCut)) <= 100) ? setSelectedTab(selectedTab + 1) : alert("La suma de los porcentajes de los cortes de la materia " + data1[idMateria].materia + " es mayor a 100")) : alert("campos vacíos")} className="boton_editar" value="Crear Nota">Crear Nota</button>
+                        <button type="button" onClick={() => verificationPercentajeCut()} className="boton_editar" value="Crear Nota">Crear Nota</button>
                     </div>
                 </div>
             </form>)
+        }
+    }
+
+    const verificationPercentajeGrade = () => {
+        if(nameGrade != '' && percentageGrade != '' && obtainedGrade != ''){
+            if (data1[idMateria].cortes[idCorte === -1 ? data1[idMateria].cortes.length - 1 : idCorte].notas.reduce((collector, porcentajeactual) => parseFloat(collector) + parseFloat(porcentajeactual.porcentaje), 0) + parseFloat(percentageGrade) <= 100) {
+                console.log("creado");
+            }else{
+                alert("La suma de los porcentajes de las notas es mayor a 100");
+            }
+        }else{
+            alert("campos vacíos")
         }
     }
 
@@ -101,7 +125,7 @@ export default function EditarNotas(){
                         </div>
                     </div>
                     <div className="contenedor_boton_editar">
-                        <button type="button" onClick={() => (nameGrade != '' && percentageGrade != '' && obtainedGrade != '') ? (((data1[idMateria].cortes[idCorte === -1 ? data1[idMateria].cortes.length - 1 : idCorte].notas.reduce((collector, porcentajeactual) => parseFloat(collector) + parseFloat(porcentajeactual.porcentaje), 0) + parseFloat(percentageGrade)) <= 100) ? console.log("creado") /* chooseToAdd() */: alert("La suma de los porcentajes de las notas es mayor a 100")) : alert("campos vacíos")} className="boton_editar" value="Crear Materia">Crear Materia</button>
+                        <button type="button" onClick={() => verificationPercentajeGrade() } className="boton_editar" value="Crear Materia">Crear Materia</button>
                     </div>
                 </div>
             </form>)
