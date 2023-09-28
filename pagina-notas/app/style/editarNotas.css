@@ -115,6 +115,12 @@
     cursor: pointer;
 }
 
+.contenedor_boton_editar {
+    display: flex;
+    margin-top: 3vh;
+    align-self: flex-start;
+}
+
  .boton_crear {
     width: 8vw;
     height: 5vh;
@@ -178,10 +184,16 @@ footer {
 /* _________________________________________________________ */
 
 
+.contenedor_botones form{
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-start;
+    align-self: flex-start;
+}
+
 .contenedor_Cambio_Notas {
     display: flex;
     position: relative;
-    width: 100%;
     flex-direction: column;
     justify-self: flex-start;
     align-self: flex-start;
@@ -242,6 +254,19 @@ footer {
     background-color: #fff;
 }
 
+.contenedor_nuevo_corte div{
+    width: 25vw;
+    margin-top: 2vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.contenedor_nuevo_corte input{
+    display: flex;
+    justify-self: flex-end;
+    align-self: flex-end;
+}
+
 .guardar_cancelar{
     display: flex;
     flex-direction: row;
@@ -281,4 +306,3 @@ footer {
 .input_porcentaje_corte {
     width: 2.5vw;
 }
-
