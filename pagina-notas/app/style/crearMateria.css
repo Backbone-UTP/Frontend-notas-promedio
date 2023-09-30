@@ -1,5 +1,6 @@
-.contenedor_universal{
-    margin-top: 15vh;  /* importante !!!!!!*/
+.contenedor_universal {
+    margin-top: 130px;
+    /* importante !!!!!!*/
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -10,51 +11,51 @@
 
 /* --------------------------------------------------------- */
 
-.contenedor_cuadros{
+.contenedor_cuadros {
     width: 70%;
-    height: 50vh;
-    background-color: aliceblue;
+    height: 310px;
+    background-color: #fff;
     display: flex;
     flex-direction: column;
     transition: height 0.5s;
-
 }
 
-.contenedor_cuadros:nth-child(1){
+.contenedor_cuadros:nth-child(1) {
     border: 3px solid #000;
     border-radius: 15px 15px 0 0;
 }
 
-.contenedor_cuadros:nth-child(2){
+.contenedor_cuadros:nth-child(2) {
     border-left: 3px solid #000;
     border-right: 3px solid #000;
 }
 
-.contenedor_cuadros:nth-child(3){
+.contenedor_cuadros:nth-child(3) {
     border: 3px solid #000;
     border-radius: 0 0 15px 15px;
 }
 
-.contenedor_cuadros:nth-child(3) form{
+.contenedor_cuadros:nth-child(3) form {
     border-radius: 0 0 15px 15px;
 }
 
-.contenedor_cuadros:nth-child(3) form div{
+.contenedor_cuadros:nth-child(3) form div {
     height: 25%;
 }
 
 /* --------------------------------------------------------- */
 
-.contenedor_botones{
+.contenedor_botones {
+    color: #fff;
     border-top: 3px solid #000;
-    background-color: #D3D3D3;
-    height: 90%;    
+    background-color: #446481;
+    height: 90%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.contenedor_botones > div{
+.contenedor_botones>div {
     width: 100%;
     height: 20%;
     display: flex;
@@ -62,84 +63,115 @@
     align-items: center;
 }
 
-.contenedor_botones div div:nth-child(1){
+.contenedor_botones div div:nth-child(1) {
     height: 100%;
     width: 30%;
     display: flex;
     align-items: center;
 }
 
-.contenedor_botones div input{
+.contenedor_botones div input {
     height: 35%;
 }
 
-.contenedor_botones div:nth-child(1) input{
+.contenedor_botones div:nth-child(1) input {
     width: 65%;
+    z-index: 4;
 }
 
-input{
+input {
     border-radius: 10px;
-    border: 1.5px solid #000;
-    box-shadow: 1px 1.5px #000 ;
+    border: 1.5px solid #ffffff;
+    box-shadow: 1px 1.5px #adadad;
     height: 35%;
-    padding: 0.5vw;
-    font-size: 80%;
+    padding: 0.7em;
+    font-size: 0.8em;
     display: flex;
 }
 
-.contenedor_botones div:nth-child(4) .enviar{
+.contenedor_botones .enviar {
     border-radius: 50px;
-    font-size: 70%;
-    padding-bottom: 3%;
+    font-size: 1rem;
+    padding: 5px 10px 25px 10px;
 }
 
-.contenedor_botones div:nth-child(3) .enviar{
-    border-radius: 50px;
-    font-size: 70%;
-    padding-bottom: 3%;
-}
-
-.enviar{
-    box-shadow: 1px 4px #000;
+.enviar {
+    color: #fff;
+    background-color: #9BC5EC;
+    box-shadow: 1px 4px #83c7db;
+    border-color: #9BC5EC;
     transition: all .325s ease;
     position: relative;
     margin-left: 15vh;
+    font-weight: bold;
 }
 
-.enviar:hover{
+.enviar:hover {
     transform: translateY(2px);
-    box-shadow: 1px 1.5px #000;
+    box-shadow: 1px 1.5px #abdae2;
     cursor: pointer;
 }
 
 
 /* --------------------------------------------------------- */
 
-.titulo_campo{
+.titulo_campo {
     display: flex;
     align-items: center;
     padding-left: 2vw;
     height: 5vh;
 }
 
-.ocultar_botones{
+.ocultar_botones {
     transition-duration: 0.3s;
     opacity: 0;
     visibility: hidden;
 }
 
-.reducir_cuadro{ 
+.reducir_cuadro {
     transition-duration: 0.5s;
     height: 5vh;
 }
 
-/*--------------------------------------------------------*/
+@media (width < 920px) {
+    .contenedor_universal {
+        font-size: 1.2em;
+    }
 
-footer {
-    position: absolute;
-    width: 100%;
-    margin-top: 18vh;
-    display: flex;
-    justify-content: right;
+    .contenedor_botones {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .contenedor_botones div {
+        padding-left: 0;
+        display: flex;
+    }
+
+    .contenedor_botones div div:nth-child(1) {
+        width: min-content;
+    }
+
+    .contenedor_botones div input {
+        height: 50%;
+        margin-left: 20px;
+    }
+
+    .contenedor_botones div:nth-child(4) .enviar {
+        border-radius: 15px;
+        padding: 4px 15px;
+        font-size: 0.9rem;
+    }
+
+    .contenedor_botones div:nth-child(5) .enviar {
+        border-radius: 15px;
+        padding: 4px 15px;
+        font-size: 0.9rem;
+        margin-left: 25%;
+
+    }
+
+
 }
 
+/*--------------------------------------------------------*/

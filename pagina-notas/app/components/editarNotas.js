@@ -24,7 +24,7 @@ export default function EditarNotas(){
 
     const contenidoCorte = () => {
         if(botonElegido == 0){
-            return(<div>
+            return(<section>
                 <div className="nombre_materia"> Numero del corte</div>
 
                 <input disabled placeholder="selecciona el corte" className="filtrar_materia" value={"corte " + (idCorte + 1) } />
@@ -39,10 +39,10 @@ export default function EditarNotas(){
                     <button className="boton_editar" onClick={() => idCorte != -1 ? (setSelectedTab(2), setBotonElegido(3)) : alert("No has seleccionado ningun corte")}>Editar Nota</button>
                     <button className="boton_editar" onClick={() => idCorte != -1 ? (setSelectedTab(2) , setBotonElegido(4)) : alert("No has seleccionado ningun corte")}>Crear Nota</button>
                 </div>
-            </div>)
+            </section>)
         }else if(botonElegido == 1){
             return(
-            <form>
+            <form className="crear_nota_corte">
                 <div>
                     <div>Nombre Corte</div>
                     <input required type="text" onChange={e => setNameCut(e.target.value)}></input>
@@ -70,7 +70,7 @@ export default function EditarNotas(){
             return opcionPorcentajeCorte(valorcheckbox)
         }else{
             return(
-            <form>
+            <form className="crear_nota_corte">
                 <div>
                     <div>Nombre Nota</div>
                     <input required type="text"  onChange={e => setNameGrade(e.target.value)}></input>
@@ -179,21 +179,23 @@ export default function EditarNotas(){
             <div className={selectedTab == 0 ? 'contenedor_cuadros': 'contenedor_cuadros reducir_cuadro'}>
                 <div className={selectedTab == 0 ? 'titulo_campo': 'titulo_campo aumentar_titulo'} >Materia</div>
                 <div className={selectedTab == 0 ? 'contenedor_botones': 'contenedor_botones ocultar_botones'} >
-                    <div className="nombre_materia">Nombre Materia</div>
+                    <section>
+                        <div className="nombre_materia">Nombre Materia</div>
 
-                    <input disabled placeholder="selecciona la materia" className="filtrar_materia" value={nombreMateria}/>
-                        
-                    <div className="contenedor_materias">
-                        {data.map(e => ( 
-                        <div key={e.id} onClick={() => (setIdMateria(e.id - 1), setNombreMateria(e.materia))}> {e.materia} </div>
-                        ))}
-                    </div>
+                        <input disabled placeholder="selecciona la materia" className="filtrar_materia" value={nombreMateria}/>
+                            
+                        <div className="contenedor_materias">
+                            {data.map(e => ( 
+                            <div key={e.id} onClick={() => (setIdMateria(e.id - 1), setNombreMateria(e.materia))}> {e.materia} </div>
+                            ))}
+                        </div>
 
-                    <div className="contenedor_botones_inferiores">
-                        <button className="boton_editar" onClick={() => idMateria != -1 ? (setSelectedTab(1), setBotonElegido(0)) : alert("No has seleccionado ninguna materia")}>Editar Corte</button>
+                        <div className="contenedor_botones_inferiores">
+                            <button className="boton_editar" onClick={() => idMateria != -1 ? (setSelectedTab(1), setBotonElegido(0)) : alert("No has seleccionado ninguna materia")}>Editar Corte</button>
 
-                        <button className="boton_editar" onClick={() => idMateria != -1 ? (setSelectedTab(1), setBotonElegido(1)) : alert("No has seleccionado ninguna materia")}>Crear Corte</button>
-                    </div>
+                            <button className="boton_editar" onClick={() => idMateria != -1 ? (setSelectedTab(1), setBotonElegido(1)) : alert("No has seleccionado ninguna materia")}>Crear Corte</button>
+                        </div>
+                    </section>
                 </div>
             </div>
 

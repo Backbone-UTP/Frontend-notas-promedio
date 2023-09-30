@@ -1,10 +1,11 @@
-.contenedor_instrucciones{
-    margin-top: 15vh; /* importante !!!!!!*/
+.contenedor_instrucciones {
+    margin-top: 80px;
+    /* importante !!!!!!*/
     height: 78vh;
     overflow-y: scroll;
 }
 
-.titulo_instrucciones{
+.titulo_instrucciones {
     text-align: center;
     font-weight: 500;
     margin-top: 1vh;
@@ -12,22 +13,22 @@
 }
 
 
-.raya_inferior_titulo_intrucciones{
+.raya_inferior_titulo_intrucciones {
     background-color: black;
     height: 2.5px;
     width: 65vw;
     margin-bottom: 2vh;
 }
 
-.texto_intrucciones{
-    text-align:justify;
-    font-size: 2vh;
+.texto_intrucciones {
+    text-align: justify;
+    font-size: 1.3;
     width: 70vw;
     margin-left: 15vw;
     margin-bottom: 5vh;
 }
 
-.subtitulo_intruciones{
+.subtitulo_intruciones {
     font-size: 3vh;
     width: 70vw;
     margin-left: 15vw;

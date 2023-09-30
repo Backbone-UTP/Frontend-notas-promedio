@@ -13,7 +13,7 @@ export default function Menu() {
             <span className={btnMenu == 0 ? 'line2_btn_menu' : 'line2_btn_menu activeline2_btn_menu'}></span>
             <span className={btnMenu == 0 ? 'line3_btn_menu' : 'line3_btn_menu activeline3_btn_menu'}></span>
         </div>
-        <div className="contenedor_imagen"><Image className="imagen_logo_utp" src={logoUtp} alt="Logo utp" /></div>
+        <div className="contenedor_imagen"><a href="/"><Image className="imagen_logo_utp" src={logoUtp} alt="Logo utp" /></a></div>
         <nav className={btnMenu == 0 ? 'nav_menu' : 'nav_menu shownav_menu'}>
             <ul className="nav_menu_lista">
                 <li><a href="/crear-materia">Crear Materia</a></li>

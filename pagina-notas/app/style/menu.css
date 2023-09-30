@@ -14,7 +14,8 @@ header>.contenedor_imagen {
     background-color: #2B4863;
     position: fixed;
     display: block;
-    margin-top: -15vh;
+    top: 0;
+    /* margin-top: -15px; */
     border-radius: 0 0 30px 30px;
     width: 100vw;
     z-index: 100;
@@ -65,36 +66,31 @@ header>.contenedor_imagen {
         position: fixed;
         top: 0;
         width: 100%;
-        height: 12.5vh;
+        height: 80px;
         background-color: #2B4863;
-        margin-top: -2vh;
-        padding: 4vw 1vw 0 1vh;
+        margin-top: -2px;
+        padding-top: 4px;
         border-radius: 0 0 30px 30px;
-    }
-
-    .nav {
-        height: 93vh;
+        z-index: 100;
     }
 
     header .contenedor_imagen {
         display: block;
         position: absolute;
-        align-items: center;
-        align-content: center;
-        left: 68%;
+        right: 3%;
         z-index: 101;
     }
 
     header .contenedor_imagen img {
-        /* margin: -0.5vh 1vh 1vh 0; */
-        width: 12vh;
-        height: 10vh;
+        width: 80px;
+        height: 70px;
     }
 
     .btn_menu {
         display: block;
-        width: 8vw;
-        margin: 2vh 2% 0 3%;
+        width: 35px;
+        height: 36px;
+        margin: 12px 8px 0 25px;
         z-index: 101;
     }
 
@@ -102,11 +98,11 @@ header>.contenedor_imagen {
 
     .btn_menu span {
         display: block;
-        width: 100%;
-        height: 0.5vh;
+        width: 2em;
+        height: 0.2em;
         background-color: #fff;
         border-radius: 50%;
-        margin-top: 1vh;
+        margin-top: 8px;
         transform-origin: 0 100%;
         transition: all 300ms;
     }
@@ -126,12 +122,13 @@ header>.contenedor_imagen {
 
     /***** End Desing Bottom Menu *****/
 
+    /***** Section Menu *****/
     .nav_menu {
         width: 100%;
-        height: 102%;
+        height: 100%;
         top: -100%;
-        margin: -2vh 0 0 -1vh;
-        padding-top: 12vh;
+        margin-top: -1%;
+        padding-top: 80px;
         transition: all 300ms;
     }
 
@@ -157,4 +154,6 @@ header>.contenedor_imagen {
     .nav_menu .nav_menu_lista .contenedor_imagen {
         display: none;
     }
+
+    /***** End Section Menu *****/
 }

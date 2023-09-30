@@ -71,6 +71,8 @@ export default function CrearMateria(){
                     <div>
                         <div>Esperado</div>
                         <input required type="number" max="5" min="0" className="number" value={expectedSubject} onChange={e => (parseFloat(e.target.value) >= 0 && parseFloat(e.target.value) <= 5) ? setExpectedSubject(e.target.value): setExpectedSubject('')}></input>
+                    </div>
+                    <div>
                         <input type="button" onClick={() => (nameSubject != '' && creditSubject != '' && obtainedSubject != '' && expectedSubject != '') ? setSelectedTab(selectedTab + 1) : alert("Campos vacíos")} className="enviar" value="Crear Corte"></input>
                     </div>
                 </form>
@@ -93,6 +95,8 @@ export default function CrearMateria(){
                             <div>
                                 <div>Esperado</div>
                                 <input required type="number" max="5" min="0" className="number" value={expectedCut} onChange={e => (parseFloat(e.target.value) >= 0 && parseFloat(e.target.value) <= 5) ? setExpectedCut(e.target.value): setExpectedCut('')}></input>
+                            </div>
+                            <div>
                                 <input type="button" onClick={() => (nameCut != '' && percentageCut != '' && obtainedCut != '' && expectedCut != '') ? setSelectedTab(selectedTab + 1) : alert("Campos vacíos")} className="enviar" value="Crear Nota"></input>
                             </div>
                 </form>
@@ -111,6 +115,8 @@ export default function CrearMateria(){
                     <div>
                         <div>Obtenido</div>
                         <input required type="number" max="5" min="0" className="number" value={obtainedGrade}  onChange={e => (parseFloat(e.target.value) >= 0 && parseFloat(e.target.value) <= 5) ? setObtainedGrade(e.target.value): setObtainedGrade('')}></input>
+                    </div>
+                    <div>
                         <input type="button" onClick={() => (nameGrade != '' && percentageGrade != '' && obtainedGrade != '') ? (addToObject(), window.location.href="/ver-notas") : alert("Campos vacios")} className="enviar" value="Crear Materia"></input>
                     </div>
                 </form>

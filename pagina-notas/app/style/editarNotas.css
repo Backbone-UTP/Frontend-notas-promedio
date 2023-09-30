@@ -1,5 +1,6 @@
-.contenedor_universal{
-    margin-top: 15vh;  /* importante !!!!!!*/
+.contenedor_universal {
+    margin-top: 130px;
+    /* importante !!!!!!*/
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -10,9 +11,9 @@
 
 /* --------------------------------------------------------- */
 
-.contenedor_cuadros{
+.contenedor_cuadros {
     width: 70%;
-    height: 50vh;
+    height: 310px;
     background-color: aliceblue;
     display: flex;
     flex-direction: column;
@@ -22,21 +23,21 @@
     border-bottom: 3px solid #000 !important;
 }
 
-.contenedor_cuadros:first-child{
+.contenedor_cuadros:first-child {
     border: 3px solid #000;
     border-radius: 15px 15px 0 0;
 }
 
-.contenedor_cuadros:last-child{
+.contenedor_cuadros:last-child {
     border-bottom: 3px solid #000;
     border-radius: 0 0 15px 15px;
 }
 
-.contenedor_cuadros:first-child .titulo_campo{
+.contenedor_cuadros:first-child .titulo_campo {
     border-radius: 15px 15px 0 0;
 }
 
-.contenedor_cuadros:last-child .contenedor_botones{
+.contenedor_cuadros:last-child .contenedor_botones {
     border-radius: 0 0 15px 15px;
 }
 
@@ -44,7 +45,7 @@
 
 .contenedor_botones {
     background-color: #D3D3D3;
-    height: 90%;   
+    height: 90%;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -54,7 +55,7 @@
     overflow-x: hidden;
 }
 
-.contenedor_botones > div{
+.contenedor_botones>div {
     width: 30vw;
     margin-top: 2vh;
 }
@@ -99,46 +100,46 @@
     align-items: center;
 }
 
-.boton_editar{
+.boton_editar {
     border-radius: 50px;
-    width: 8vw;
-    height: 4vh;
+    width: 11vw;
+    height: 5vh;
     margin-right: 1vw;
     box-shadow: 1px 4px #000;
     transition: all .325s ease;
     position: relative;
 }
 
-.boton_editar:hover{
+.boton_editar:hover {
     transform: translateY(2px);
     box-shadow: 1px 1.5px #000;
     cursor: pointer;
 }
 
- .boton_crear {
-    width: 8vw;
-    height: 5vh;
+.boton_crear {
+    width: 11vw;
+    height: 6vh;
     margin-left: 1vw;
- }
+}
 
- .contenedor_botones_inferiores button {
+.contenedor_botones_inferiores button {
     box-shadow: 1px 4px #000;
     transition: all .325s ease;
     position: relative;
     border-radius: 50px;
-    font-size: 70%;
- }
+    font-size: 1em;
+}
 
- .contenedor_botones_inferiores button:hover {
+.contenedor_botones_inferiores button:hover {
     transform: translateY(2px);
     box-shadow: 1px 1.5px #000;
     cursor: pointer;
- }
+}
 
 
 /* --------------------------------------------------------- */
 
-.titulo_campo{
+.titulo_campo {
     display: flex;
     align-items: center;
     padding-left: 2vw;
@@ -146,17 +147,17 @@
     border-bottom: 3px solid #000;
 }
 
-.titulo_campo:hover{
+.titulo_campo:hover {
     cursor: pointer;
 }
 
-.ocultar_botones{
+.ocultar_botones {
     transition-duration: 0.3s;
     opacity: 0;
     visibility: hidden;
 }
 
-.reducir_cuadro{ 
+.reducir_cuadro {
     transition-duration: 0.5s;
     height: 5vh;
 }
@@ -165,18 +166,7 @@
     border-bottom: 0;
 }
 
-/* --------------------------------------------------------- */
-
-footer {
-    position: absolute;
-    width: 100%;
-    margin-top: 20vh;
-    display: flex;
-    justify-content: right;
-}
-
-/* _________________________________________________________ */
-
+/*___________________________________________________________*/
 
 .contenedor_Cambio_Notas {
     display: flex;
@@ -188,7 +178,7 @@ footer {
     margin-left: 5vw;
 }
 
-.contenedor_corte_porcentaje{
+.contenedor_corte_porcentaje {
     width: 50vw;
     height: 8vh;
     display: flex;
@@ -197,13 +187,13 @@ footer {
     align-items: center;
 }
 
-.contenedor_corte_porcentaje .nombre_materia{
+.contenedor_corte_porcentaje .nombre_materia {
     display: flex;
     justify-content: left;
     height: 8vh;
 }
 
-.contenedor_corte_porcentaje div{
+.contenedor_corte_porcentaje div {
     display: flex;
     justify-content: left;
     width: 20vw;
@@ -218,12 +208,12 @@ footer {
     width: 34vw;
 }
 
-.contenedor_nota div{
+.contenedor_nota div {
     display: flex;
     justify-content: center;
 }
 
-.numero_corte{
+.numero_corte {
     padding-left: 2.4vw;
 }
 
@@ -242,7 +232,7 @@ footer {
     background-color: #fff;
 }
 
-.guardar_cancelar{
+.guardar_cancelar {
     display: flex;
     flex-direction: row;
     margin-top: 3.1vh;
@@ -250,7 +240,7 @@ footer {
     margin-left: 2vw;
 }
 
-.guardar_cancelar button{
+.guardar_cancelar button {
     height: 3vh;
     width: 4vw;
     border-radius: 50px;
@@ -282,3 +272,83 @@ footer {
     width: 2.5vw;
 }
 
+/******* Media Responsive *******/
+
+@media (width < 920px) {
+    .contenedor_universal {
+        font-size: 1.2em;
+    }
+
+    .contenedor_botones div {
+        padding: 5px;
+    }
+
+    .contenedor_botones section div {
+        padding: 2px;
+    }
+
+    .contenedor_botones section {
+        width: 90%;
+        margin-top: 13px;
+    }
+
+    .contenedor_botones input {
+        font-size: 1em;
+        width: 100%;
+    }
+
+    .contenedor_materias {
+        display: block;
+        position: relative;
+        min-height: 100px;
+        height: auto;
+    }
+
+    .contenedor_botones_inferiores button {
+        font-size: 1rem;
+    }
+
+    .boton_editar {
+        margin: 0 4px;
+        width: 110px;
+        height: 30px;
+    }
+
+    .crear_nota_corte {
+        padding: 10px;
+    }
+
+    .crear_nota_corte input {
+        border-radius: 10px;
+    }
+
+    .crear_nota_corte input[type="button"] {
+        margin-top: 10px;
+    }
+
+    .contenedor_corte_porcentaje {
+        display: block;
+    }
+
+    .contenedor_Cambio_notas {
+        display: block;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+        margin-bottom: 20px;
+    }
+
+    .contenedor_corte_porcentaje {
+        display: flex;
+        flex-direction: column;
+        width: 150px;
+        height: 160px;
+    }
+
+    .contenedor_nota {
+        align-self: center;
+        margin-top: 15px;
+    }
+}
+
+/* --------------------------------------------------------- */
