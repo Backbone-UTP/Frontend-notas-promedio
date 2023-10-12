@@ -1,10 +1,10 @@
-.contenedor_instrucciones{
-    margin-top: 15vh; /* importante !!!!!!*/
+.main_container{
+    margin-top: 15vh;
     height: 78vh;
     overflow-y: scroll;
 }
 
-.titulo_instrucciones{
+.main_title{
     text-align: center;
     font-weight: 500;
     margin-top: 1vh;
@@ -12,14 +12,14 @@
 }
 
 
-.raya_inferior_titulo_intrucciones{
+.horizontal_line{
     background-color: black;
     height: 2.5px;
     width: 65vw;
     margin-bottom: 2vh;
 }
 
-.texto_intrucciones{
+.text{
     text-align:justify;
     font-size: 2vh;
     width: 70vw;
@@ -27,7 +27,7 @@
     margin-bottom: 5vh;
 }
 
-.subtitulo_intruciones{
+.subtitle{
     font-size: 3vh;
     width: 70vw;
     margin-left: 15vw;
