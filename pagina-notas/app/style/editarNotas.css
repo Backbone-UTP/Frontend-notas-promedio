@@ -184,10 +184,16 @@ footer {
 /* _________________________________________________________ */
 
 
+.contenedor_botones form{
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-start;
+    align-self: flex-start;
+}
+
 .contenedor_Cambio_Notas {
     display: flex;
     position: relative;
-    width: 100%;
     flex-direction: column;
     justify-self: flex-start;
     align-self: flex-start;
@@ -295,4 +301,3 @@ footer {
 .input_porcentaje_corte {
     width: 2.5vw;
 }
-
