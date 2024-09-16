@@ -1,0 +1,29 @@
+.card-container{
+    @apply min-w-[300px]
+    min-h-[550px] 
+    max-w-[300px]
+    max-h-[550px] 
+    mx-auto 
+    rounded-lg
+    text-white
+    bg-[#17124d]
+    border-2
+    border-[#171335]
+    absolute
+    text-justify
+    duration-[0.5s]
+    overflow-y-auto
+    overflow-x-auto
+    text-xl
+    p-4
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hidden {
+    -ms-overflow-style: none; /* IE 10+ */
+    scrollbar-width: none; /* Firefox */
+}
+  
