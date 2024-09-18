@@ -4,6 +4,10 @@
 
 *{
   box-sizing: border-box;
+  -webkit-user-select: none; /* Para navegadores WebKit/Blink */
+  -moz-user-select: none; /* Para Firefox */
+  -ms-user-select: none; /* Para Internet Explorer/Edge */
+  user-select: none;
 }
 
 :root {
