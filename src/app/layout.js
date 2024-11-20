@@ -12,7 +12,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head><meta name="viewport" content="width=500, initial-scale=1" /></head>
-      <body className={inter.className}>{children}</body> 
+      <body className={inter.className}>
+        {children}
+      </body> 
     </html>
   );
 }

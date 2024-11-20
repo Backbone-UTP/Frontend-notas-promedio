@@ -43,3 +43,17 @@ body {
     text-wrap: balance;
   }
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none; /* Vendor-prefixed version first */
+  appearance: none; /* Standard property last */
+  margin: 0;
+}
+
+input[type=number] {
+  -webkit-appearance: none; /* Vendor-prefixed version first */
+  -moz-appearance: textfield; /* Vendor-prefixed version for Firefox */
+  appearance: textfield; /* Standard property last */
+}
+
