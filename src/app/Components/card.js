@@ -62,13 +62,13 @@ export default function Card({ index, currentIndex, values, main}) {
               <div key={corteName} className="border-t border-gray-700 py-2">
                 <div className="flex justify-between">
                   <h2 className="text-xl font-semibold">{corteName}</h2>
-                  <p className="text-sm">Porcentaje: {values.Cortes[corteName].porcentaje * 100} %</p>
+                  <p className="text-sm">Porcentaje: {values.Cortes[corteName].porcentaje} %</p>
                 </div>
                 <ul className="ml-7 text-base">
                   {values.Cortes[corteName].Notas.map((nota, index) => (
                     <li key={index} className="flex">
                       <span className="w-24">Nota {index + 1}</span>  
-                      <span className="w-24">{nota[1] * 100} %</span>
+                      <span className="w-24">{nota[1]} %</span>
                       <span className="text-gray-500">{nota[0]}</span>
                     </li>
                   ))}
@@ -77,7 +77,7 @@ export default function Card({ index, currentIndex, values, main}) {
             ))}
           </div>
         </div>
-        <Modal isOpen={modalIsOpen} onClose={closeModal} info={values.name} action={action}/>
+        <Modal isOpen={modalIsOpen} onClose={closeModal} info={values} action={action}/>
       </>
     );
 
